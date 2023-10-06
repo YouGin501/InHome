@@ -1,0 +1,135 @@
+<div class="container page-container">
+  <div class="row info-block-container">
+    <div class="col-3 left-info-block">
+      <ul>
+        <li class="menu-list-item">
+          <a [routerLink]="'/new-buildings'" class="menu-list-link">{{
+            newBuildings | translate
+          }}</a>
+        </li>
+        <li class="menu-list-item">
+          <a [routerLink]="'/sellings'" class="menu-list-link">{{
+            selling | translate
+          }}</a>
+        </li>
+        <li class="menu-list-item">
+          <a [routerLink]="'/rents'" class="menu-list-link">{{
+            rent | translate
+          }}</a>
+        </li>
+        <li class="menu-list-item">
+          <a [routerLink]="'/designs'" class="menu-list-link">{{
+            design | translate
+          }}</a>
+        </li>
+        <li class="menu-list-item">
+          <a href="./" class="menu-list-link">{{ aboutUs | translate }}</a>
+        </li>
+      </ul>
+      <div class="social-media-container">
+        <div class="social-media-label">{{ weInSocialMedia | translate }}</div>
+        <div class="social-media-icons-container">
+          <img
+            class="social-media-icon"
+            src="../../../assets/img/instagram.svg"
+          />
+          <img
+            class="social-media-icon"
+            src="../../../assets/img/facebook.svg"
+          />
+          <img
+            class="social-media-icon"
+            src="../../../assets/img/twitter.svg"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-9 col-12 right-info-block" *ngIf="!isRegisteredUser">
+      <div class="options-title">{{ howItWorks | translate }}</div>
+      <a class="registration-link" href="./">{{
+        letsRegistrate | translate
+      }}</a>
+      <div class="registration-options-container">
+        <div class="registration-option">
+          <div>{{ chooseService | translate }}</div>
+          <img class="option-img" src="../../../assets/img/home-business.svg" />
+        </div>
+        <div class="registration-option">
+          <div>{{ orderDesign | translate }}</div>
+          <img class="option-img" src="../../../assets/img/home-design.svg" />
+        </div>
+        <div class="registration-option">
+          <div>{{ letsReview | translate }}</div>
+          <img class="option-img" src="../../../assets/img/home-feedback.svg" />
+        </div>
+      </div>
+    </div>
+    <div *ngIf="isRegisteredUser" class="posts-container">
+      <div class="filters-section">
+        <app-dropdown-filter
+          [options]="availableLocations"
+          [currentSelection]="currentSelectionLocation"
+          (currentSelectionChange)="handleLocationChanged($event)"
+          class="first-filter dropdown-filter"
+        ></app-dropdown-filter>
+        <app-dropdown-filter
+          [options]="postTypes"
+          [currentSelection]="postType"
+          (currentSelectionChange)="handlePostTypeChanged($event)"
+          class="dropdown-filter"
+        ></app-dropdown-filter>
+        <button class="small-filter" (click)="openModal()">
+          <div class="filter-img"></div>
+          <div>{{ filter | translate }}</div>
+        </button>
+      </div>
+      <div class="subscribed-projects">
+        <div class="subscribed-scroll">
+          <div
+            *ngFor="let project of newProjects; let i = index"
+            class="sub-project-container"
+            [ngClass]="{ 'not-first-card': i != 0 }"
+          >
+            <img [src]="project.photosUrls[0].url" class="sub-project-img" />
+          </div>
+        </div>
+      </div>
+      <app-post-card
+        *ngFor="let post of newsPosts"
+        [post]="post"
+        (likeAction)="likeUpdate()"
+      ></app-post-card>
+    </div>
+  </div>
+  <div *ngIf="!isRegisteredUser">
+    <app-projects-carousel></app-projects-carousel>
+  </div>
+  <div class="bottom-registration" *ngIf="!isRegisteredUser">
+    <div class="registration-label">{{ canBeYourNews | translate }}</div>
+    <button class="registarte-button">{{ registarte | translate }}</button>
+  </div>
+</div>
+<app-modal-window
+  [isOpened]="isOpenedModal"
+  bgColor="#00A3FF33"
+  class="modal-window"
+>
+  <div header class="custom-modal-header">
+    <button class="arrow-back-head" (click)="closeModal()"></button>
+    <div class="header-text">{{ filter | translate }}</div>
+  </div>
+  <div class="modal-content-container" body>
+    <div class="first-filter-sm">
+      <app-dropdown-filter
+        [options]="availableLocations"
+        [currentSelection]="currentSelectionLocation"
+        (currentSelectionChange)="handleLocationChanged($event)"
+      ></app-dropdown-filter>
+    </div>
+    <app-dropdown-filter
+      [options]="postTypes"
+      [currentSelection]="postType"
+      (currentSelectionChange)="handlePostTypeChanged($event)"
+    ></app-dropdown-filter>
+  </div>
+</app-modal-window>

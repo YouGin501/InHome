@@ -1,0 +1,266 @@
+<app-modal-window
+  [isOpened]="createPostModal"
+  bgColor="#00a3ff33"
+  class="modal-window"
+>
+  <div header class="custom-modal-header">
+    <button class="close-button" (click)="closeModal()"></button>
+    <div class="header-text" *ngIf="modalType === 'rent'">
+      {{ addRentText | translate }}
+    </div>
+    <div class="header-text" *ngIf="modalType === 'sell'">
+      {{ addSellingText | translate }}
+    </div>
+  </div>
+  <div class="modal-content-container" body [formGroup]="postForm">
+    <div class="modal-content__top-wrapper">
+      <div class="img-block">
+        <div class="side-images-container">
+          <div class="side-img"></div>
+          <div class="side-img"></div>
+          <div class="side-img"></div>
+          <div class="side-img"></div>
+        </div>
+        <div class="main-img-area">
+          <img
+            src="assets/cross/add-icon.svg"
+            (click)="photoInput.click()"
+            class="img-button-icon"
+          />
+          <input
+            #photoInput
+            type="file"
+            (change)="onPhotoInput($event)"
+            style="display: none"
+            multiple
+            accept=".png,.jpg"
+          />
+          <div class="img-counter">
+            <span>+</span>
+            <span>{{ photoToUpload.length }}</span>
+          </div>
+          <div class="down-img-buttons">
+            <div class="img-button"></div>
+            <div class="img-button"></div>
+            <div class="img-button"></div>
+            <div class="img-button"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-content__middle-wrapper">
+      <div class="pattern-container">
+        <img
+          src="../../../../assets/img/account-icon-dark.svg"
+          class="account-icon"
+        />
+        <div class="owner-label">{{ ownerText | translate }}</div>
+        <div class="chat-label">{{ chatText | translate }}</div>
+        <div class="website-label">{{ websiteText | translate }}</div>
+      </div>
+      <div>
+        <div class="modal-content__input_container input-with-validation">
+          <input
+            type="text"
+            [placeholder]="'TITLE' | translate"
+            class="modal-content__input half-input"
+            formControlName="title"
+            [ngClass]="postForm.controls['title'].errors?.['required'] && postForm.touched && postForm.invalid ? 'invalid-input' : 'valid-input'"
+          />
+          <div class="invalid-text-container">
+            <div
+              *ngIf="postForm.controls['title'].errors?.['required'] && postForm.touched && postForm.invalid"
+              class="invalid-text"
+            >
+              Title field is required
+            </div>
+          </div>
+        </div>
+        <div class="modal-content__input_container input-with-validation">
+          <input
+            type="text"
+            [placeholder]="'HASHTAGS' | translate"
+            class="modal-content__input half-input"
+            formControlName="hashtags"
+          />
+        </div>
+      </div>
+      <div>
+        <div class="location-label">{{ locationText | translate }}:</div>
+        <div formGroupName="location">
+          <div class="location-part-container">
+            <div class="modal-content__input_container input-with-validation">
+              <input
+                type="text"
+                [placeholder]="'COUNTRY' | translate"
+                class="modal-content__input half-input"
+                formControlName="country"
+                [ngClass]="postForm.controls['location'].controls['country'].errors?.['required'] && postForm.touched && postForm.invalid ? 'invalid-input' : 'valid-input'"
+              />
+              <div class="invalid-text-container">
+                <div
+                  *ngIf="postForm.controls['location'].controls['country'].errors?.['required'] && postForm.touched && postForm.invalid"
+                  class="invalid-text"
+                >
+                  Country field is required
+                </div>
+              </div>
+            </div>
+            <div class="modal-content__input_container input-with-validation">
+              <input
+                type="text"
+                [placeholder]="'CITY' | translate"
+                class="modal-content__input half-input"
+                formControlName="city"
+                [ngClass]="postForm.controls['location'].controls['city'].errors?.['required'] && postForm.touched && postForm.invalid ? 'invalid-input' : 'valid-input'"
+              />
+              <div class="invalid-text-container">
+                <div
+                  *ngIf="postForm.controls['location'].controls['city'].errors?.['required'] && postForm.touched && postForm.invalid"
+                  class="invalid-text"
+                >
+                  City field is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-content__input_container input-with-validation">
+            <input
+              type="text"
+              [placeholder]="'ADDRESS' | translate"
+              class="modal-content__input"
+              formControlName="address"
+              [ngClass]="postForm.controls['location'].controls['address'].errors?.['required'] && postForm.touched && postForm.invalid ? 'invalid-input' : 'valid-input'"
+            />
+            <div class="invalid-text-container">
+              <div
+                *ngIf="postForm.controls['location'].controls['address'].errors?.['required'] && postForm.touched && postForm.invalid"
+                class="invalid-text"
+              >
+                Address field is required
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="characteristics-label">
+          {{ charactericsText | translate }}:
+        </div>
+        <div class="charecterisitics-head">
+          <app-light-dropdown
+            [options]="realEstateStatusOptions"
+            (currentSelectionChange)="selectType($event)"
+            [(currentSelection)]="currentRealEstateStatus"
+            class="dropdown-half"
+          ></app-light-dropdown>
+          <app-light-dropdown
+            [options]="buildingTypeOptions"
+            (currentSelectionChange)="selectBuildingType($event)"
+            [(currentSelection)]="currentBuildingType"
+            class="dropdown-half"
+          ></app-light-dropdown>
+        </div>
+      </div>
+      <div class="under-location-container">
+        <div class="modal-content__input_container input-with-validation rent-period-block" *ngIf="modalType === 'rent'">
+          <input
+            type="number"
+            [placeholder]="'MINIMAL_PERIOD' | translate"
+            max="12"
+            min="1"
+            class="modal-content__input half-input"
+            formControlName="minimalRentPeriod"
+          />
+        </div>
+        <div class="modal-content__input_container input-with-validation">
+          <input
+            type="number"
+            [placeholder]="'ROOMS_NUMBER' | translate"
+            min="1"
+            class="modal-content__input half-input"
+            formControlName="roomsNumber"
+            [ngClass]="postForm.controls['roomsNumber'].errors?.['required'] && postForm.touched && postForm.invalid ? 'invalid-input' : 'valid-input'"
+          />
+          <div class="invalid-text-container">
+            <div
+              *ngIf="postForm.controls['roomsNumber'].errors?.['required'] && postForm.touched && postForm.invalid"
+              class="invalid-text"
+            >
+              Number of rooms field is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-content__input_container desc-input">
+        <textarea
+          class="modal-content__textarea"
+          placeholder="Description"
+          formControlName="description"
+        ></textarea>
+      </div>
+      <div class="modal-content__input_container input-with-validation">
+        <input
+          type="text"
+          [placeholder]="'ADVERTIZING_LABEL' | translate"
+          class="modal-content__input"
+          formControlName="advertisingLabel"
+        />
+      </div>
+      <div class="bottom-input-container">
+        <div class="modal-content__input_container input-with-validation">
+          <input
+            type="number"
+            [placeholder]="'LIVING_AREA' | translate"
+            class="modal-content__input"
+            formControlName="livingSpace"
+            [ngClass]="postForm.controls['livingSpace'].errors?.['required'] && postForm.touched && postForm.invalid ? 'invalid-input' : 'valid-input'"
+          />
+          <div class="invalid-text-container">
+            <div
+              *ngIf="postForm.controls['livingSpace'].errors?.['required'] && postForm.touched && postForm.invalid"
+              class="invalid-text"
+            >
+              Living space field is required
+            </div>
+          </div>
+        </div>
+        <div
+          class="modal-content__input_container input-with-validation price-input"
+        >
+          <input
+            type="number"
+            [placeholder]="'PRICE' | translate"
+            class="modal-content__input"
+            formControlName="price"
+            [ngClass]="postForm.controls['price'].errors?.['required'] && postForm.touched && postForm.invalid ? 'invalid-input' : 'valid-input'"
+          />
+          <div class="invalid-text-container">
+            <div
+              *ngIf="postForm.controls['price'].errors?.['required'] && postForm.touched && postForm.invalid"
+              class="invalid-text"
+            >
+              Price field is required
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="add-post-buttons">
+      <button
+        type="button"
+        class="close-modal-window-button"
+        (click)="closeModal()"
+      >
+        {{ closeText | translate }}
+      </button>
+      <button
+        type="submit"
+        class="submit-modal-window-button"
+        (click)="createPost()"
+      >
+        {{ publishText | translate }}
+      </button>
+    </div>
+  </div>
+</app-modal-window>

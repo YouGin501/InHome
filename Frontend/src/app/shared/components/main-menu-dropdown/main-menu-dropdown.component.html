@@ -1,0 +1,32 @@
+<div class="dropdown-container" [ngClass]="{'dropdown-container-closed ': !menuOpened}">
+    <div class="menu-item first-menu-item">
+        <a>{{ newBuildings | translate }}</a>
+        <button class="close-button" (click)="closeMenu()"></button>
+    </div>
+    <a class="menu-item" (click)="closeMenu()">{{ selling | translate }}</a>
+    <a [routerLink]="['/rents']" class="menu-item" (click)="closeMenu()">{{ rent | translate }}</a>
+    <a [routerLink]="['/designs']"  class="menu-item" (click)="closeMenu()">{{ design | translate }}</a>
+    <a class="menu-item about-us-item" (click)="closeMenu()">{{ aboutUs | translate }}</a>
+    <div class="line"></div>
+    <a class="map-item" (click)="closeMenu()">{{ map | translate }}</a>
+    <div class="line"></div>
+    <div  *ngIf = "!currentUser">
+        <button class="menu-item reg-item" (click)="signIn()">{{ signInText | translate }}</button>/
+        <button class="reg-item" (click)="signUp()">{{ signUpText | translate }}</button>
+    </div>
+    <a routerLink="/user-profile/{{currentUser.id}}" class="menu-item profile-item" (click)="closeMenu()" *ngIf = "currentUser">{{ profile | translate }}</a>
+    <a class="menu-item log-out-item" (click)="logOut()" *ngIf = "currentUser">{{ logOutText | translate }}</a>
+    <a class="menu-item" (click)="closeMenu()">{{ chat | translate }}</a>
+    <div class="col-1 lang-switcher menu-item">
+        <button (click)="setLang('ua')" class="language-button" [ngClass]="{'active-language-button': currentLanguage === 'ua'}">UA</button>
+        <span>/</span>
+        <button (click)="setLang('en')" class="language-button" [ngClass]="{'active-language-button': currentLanguage === 'en'}">EN</button>
+    </div>
+    <div class="line"></div>
+    <a class="menu-item social-item" (click)="closeMenu()">{{ socialMedia | translate }}</a>
+    <div class="social-media-icons-container menu-item">
+        <img class="social-media-icon" src="../../../assets/img/instagram.svg">
+        <img class="social-media-icon" src="../../../assets/img/facebook.svg">
+        <img class="social-media-icon" src="../../../assets/img/twitter.svg">
+    </div>
+</div>

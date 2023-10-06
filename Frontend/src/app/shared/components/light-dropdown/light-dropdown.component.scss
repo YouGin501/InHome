@@ -1,0 +1,59 @@
+@import '../../../../styles.scss';
+
+.dropdown-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  border: 1px solid $base-black-color;
+  border-radius: 5px;
+
+  .dropdown-button {
+    border-radius: 5px;
+    border: 0;
+    background-color: rgb(255, 255, 255);
+    padding: 14px 60px;
+    font-size: 17px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .dropdown-selected-option {
+    color: rgba(0, 0, 0, 1);
+    font-size: 17px;
+  }
+
+  .down-arrow {
+    background-image: url(../../../../assets/img/arrow-down-black.svg);
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+  }
+
+  .dropdown-options {
+    top: 50px;
+    position: absolute;
+    min-width: 100%;
+    z-index: 100;
+
+    .dropdown-item {
+      min-width: 100%;
+      width: 100%;
+      padding-top: 18px;
+      padding-bottom: 18px;
+      background-color: rgb(255, 255, 255);
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .dropdown-container {
+    .dropdown-button {
+      padding: 14px 20px;
+      font-size: 14px;
+    }
+  }
+}

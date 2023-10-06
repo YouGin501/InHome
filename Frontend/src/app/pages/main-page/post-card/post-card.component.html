@@ -1,0 +1,32 @@
+<div class="posts-box">
+  <div class="card-head">
+    <div class="user-logo" (click)="openUserProfile()">
+      <!-- should be userUrl -->
+      <img [src]="userImg" class="user-img" />
+    </div>
+    <div class="info-box">
+      <div class="user-name-text">{{ post?.user?.name }}</div>
+      <div class="user-type-text">{{ userType | translate }}</div>
+    </div>
+  </div>
+
+  <div class="post-photo-wrapper" [style.backgroundImage]="imgPostUrl">
+    <div class="post-main-img-container">
+      <div class="next-buttons" *ngIf="post.photos.length - 1">
+        <button class="left-btn" (click)="prevImg()"></button>
+        <button class="right-btn" (click)="nextImg()"></button>
+      </div>
+      <div class="post-info">
+        <div class="actions-container">
+          <app-like-btn class="like-btn" postType="post" [postId]="post.id" (likeAction)="likeAction()" [alreadyLiked]="isLiked"></app-like-btn>
+          <button class="comments-btn"></button>
+          <button class="video-btn"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="desc-box" *ngIf="post?.description">
+    {{post.description}}
+  </div>
+</div>

@@ -1,0 +1,108 @@
+<app-modal-window
+  [isOpened]="showModal"
+  bgColor="#00a3ff33"
+  class="modal-window"
+>
+  <div header class="custom-modal-header">
+    <button class="close-button" (click)="closeModal()"></button>
+    <div class="header-text" *ngIf="modalType === 'rent'">
+        addRentText
+    </div>
+    <div class="header-text" *ngIf="modalType === 'sell'">
+        addSellingText
+    </div>
+  </div>
+  <div class="modal-content-container" body>
+    <div class="modal-content__top-wrapper">
+      <div class="img-block">
+        <div class="side-images-container" *ngIf="item && item?.photosUrls && item.photosUrls.length > 1">
+            <div class="side-img" *ngFor="let item of sideImages">
+                <img [src]="item.url" class="side-img-item" (click)="onImgClick(item.id)">
+            </div>
+        </div>
+        <div class="main-img-area">
+            <div class="main-img__wrapper" *ngIf="mainImage">
+                <img [src]="mainImage.url" class="main-img">
+                <div class="main-img__shadow"></div>
+            </div>
+          <div class="down-img-buttons" *ngIf="item && item?.photosUrls && item.photosUrls.length > 1">
+            <div
+            *ngFor="let photo of item.photosUrls"
+             class="img-button"
+             [class.img-button--selected]="photo.id === mainImage?.id"
+             (click)="onImgClick(photo.id)"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-content__middle-wrapper">
+      <div class="pattern-container">
+        <img
+          src="../../../../assets/img/account-icon-dark.svg"
+          class="account-icon"
+        />
+        <div class="owner-label">{{ ownerText | translate }}</div>
+        <div class="chat-label">{{ chatText | translate }}</div>
+        <div class="website-label">{{ websiteText | translate }}</div>
+      </div>
+      <h1
+        class="modal-content__title"
+       >{{item?.title}}</h1>
+      <div class="modal-content__input_container modal-content__input_container--price" *ngIf="item && item.price">
+        <p class="modal-content__input-label">Price:</p>
+         <div class="modal-content__input-label--price">{{item.price}}</div>
+      </div>
+      <div class="modal-content__input_container desc-input" *ngIf="item && item.description">
+        <p class="modal-content__input-label">Description:</p>
+        <div
+          class="modal-content__textarea modal-content__input"
+        >{{item?.description}}</div>
+      </div>
+      <div class="modal-content__input_container desc-input" *ngIf="item && item.location">
+        <div class="modal-content__grouped modal-content__grouped--autosized desc-input">
+            <div class="modal-content__grouped-item">
+                <p class="modal-content__input-label">Country:</p>
+                <div
+                  class="modal-content__input"
+                >{{item.location.country}}</div>
+            </div>
+            <div class="modal-content__grouped-item">
+                <p class="modal-content__input-label">City:</p>
+                <div
+                  class="modal-content__input"
+                >{{item.location.city}}</div>
+            </div>
+        </div>
+        <div class="modal-content__grouped-item">
+            <p class="modal-content__input-label">Address:</p>
+            <div
+              class="modal-content__input"
+            >{{item.location.address}}</div>
+        </div>
+      </div>
+      <div class="modal-content__input_container desc-input">
+        <div class="modal-content__grouped" *ngIf="item">
+            <div class="modal-content__grouped-item">
+                <p class="modal-content__input-label">Living space:</p>
+                <div
+                  class="modal-content__input"
+                >{{item.livingSpace}}</div>
+            </div>
+            <div class="modal-content__grouped-item">
+                <p class="modal-content__input-label">Number of rooms:</p>
+                <div
+                  class="modal-content__input"
+                >{{item.numberOfRooms}}</div>
+            </div>
+            <div class="modal-content__grouped-item" *ngIf="item.buildingType !== undefined">
+                <p class="modal-content__input-label">Building type:</p>
+                <div
+                  class="modal-content__input"
+                >{{projectTypes[item.buildingType]}}</div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-modal-window>

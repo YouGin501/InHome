@@ -1,0 +1,66 @@
+.error-icon {
+  background-image: url(../../../../assets/img/alert-triangle.svg);
+  background-size: cover;
+  width: 24px;
+  height: 24px;
+  margin-right: 16px;
+}
+
+.success-icon {
+  background-image: url(../../../../assets/img/success-icon.svg);
+  background-size: cover;
+  width: 24px;
+  height: 24px;
+  margin-right: 16px;
+}
+
+.info-header {
+  display: flex;
+  font-size: 20px;
+  align-items: center;
+}
+
+.container-error {
+  background: linear-gradient(0deg, #e2b4ae, #e2b4ae),
+    linear-gradient(0deg, #fff0ee, #fff0ee);
+  opacity: 0.9;
+  border: 2px solid rgba(226, 180, 174, 1);
+  padding: 24px;
+  width: 540px;
+  box-shadow: 0px 6px 12px 0px #0000001a;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.container-success {
+  background-color: #e4eae0;
+  background-image: linear-gradient(0deg, #e4eae0 0%, #a3e197 100%);
+  opacity: 0.9;
+  border: 2px solid rgb(51 131 20);
+  padding: 24px;
+  width: 540px;
+  box-shadow: 0px 6px 12px 0px #0000001a;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.blure-overlay {
+  backdrop-filter: blur(10px);
+  width: fit-content;
+  height: fit-content;
+}
+
+.message-text {
+  color: rgba(156, 156, 156, 1);
+  padding-left: 40px;
+}
+
+.close-button {
+  background-image: url(../../../../assets/img/close-icon-thin.svg);
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background-color: transparent;
+  margin-left: auto;
+}

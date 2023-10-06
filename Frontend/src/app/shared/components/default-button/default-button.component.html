@@ -1,0 +1,8 @@
+<div class="btn-wrapper">
+    <button (click)="clicked()" class="btn" [style.max-width]="maxWidth">
+        <div *ngIf="buttonImg" class="btn-img-container">
+            <img [src]="buttonImg" class="button-img">
+        </div>
+        <div>{{ buttonText | translate}}</div>
+    </button>
+</div>

@@ -1,0 +1,17 @@
+<div>
+  <div class="appart-type-holder">
+    <div class="appartment-type-name">{{ appartType }}</div>
+    <button [ngClass]="isOpened ? 'button-opened' : 'button-closed'" (click)="openExpand()"></button>
+  </div>
+  <div *ngIf="isOpened" class="add-apart-area">
+    <div class="appart-list">
+        <button class="add-appart-button" (click)="createAppartment()">
+            <div class="plus-icon"></div>
+        </button>
+        <div [style.backgroundImage]="getImgUrl(appart.mainPhoto)" *ngFor="let appart of filteredAppartments" class="appart-item" (click)="editAppartment(appart)">
+            <button class="delete-button" (click)="deleteAppartment(appart.id)"></button>
+        </div>
+    </div>
+  </div>
+</div>
+

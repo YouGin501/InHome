@@ -1,0 +1,16 @@
+<app-modal-window [isOpened]="isOpenedModal" bgColor="#00A3FF33">
+  <div header class="custom-modal-header">
+    <div class="header-text">{{ profile | translate }}</div>
+    <div>
+      <button class="close-button" (click)="close()"></button>
+    </div>
+  </div>
+  <div body class="modal-content-container">
+    <div class="user-label">{{ user | translate }}</div>
+    <app-profile-dropdown [options]="userTypeOptions" (currentSelectionChange)="selectType($event)" [(currentSelection)]="currentSelection"></app-profile-dropdown>
+    <div class="down-buttons">
+        <button class="back-button" (click)="goToAuth()">{{ back | translate}}</button>
+        <button class="next-button" (click)="registrate()">{{ next | translate}}</button>
+    </div>
+  </div>
+</app-modal-window>

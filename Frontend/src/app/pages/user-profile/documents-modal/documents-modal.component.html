@@ -1,0 +1,25 @@
+<app-modal-window
+  [isOpened]="isOpenedModal"
+  bgColor="#00A3FF33"
+  class="modal-window"
+>
+  <div header class="custom-modal-header">
+    <button class="close-button" (click)="closeModal()"></button>
+    <div class="header-text">{{ documentsText | translate }}</div>
+  </div>
+  <div class="modal-content-container" body>
+    <div *ngIf="documents?.length" class="doc-box">
+      <ng-container *ngFor="let document of documents">
+        <iframe
+          [src]="document.url"
+          frameborder="0"
+          width="100%"
+          height="100%"
+          class="document-item"
+        >
+        </iframe>
+      </ng-container>
+    </div>
+    <div *ngIf="!documents?.length">No documents uploaded</div>
+  </div>
+</app-modal-window>

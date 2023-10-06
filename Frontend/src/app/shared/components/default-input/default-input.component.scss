@@ -1,0 +1,41 @@
+@import '../../../../styles.scss';
+
+.input-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    label {
+        width: 100%;
+        display: block;
+        margin: 0;
+        font-size: 17px;
+        color: $base-white-color;
+        font-weight: 300;
+    }
+
+    input {
+        width: 100%;
+        background-color: rgba(217, 217, 217, 1);
+        border: 0;
+        padding: 5px;
+    }
+
+    .valid-input {
+        padding: 7px;
+    }
+
+    .invalid-input {
+        border: 2px solid rgba(167, 31, 13, 1);
+        border-radius: 4px;
+    }
+    
+    .invalid-text-container {
+        height: 18px;
+        width: 100%;
+
+        .invalid-text {
+            color: rgba(167, 31, 13, 1);
+            font-size: 12px;
+        }
+    }
+}

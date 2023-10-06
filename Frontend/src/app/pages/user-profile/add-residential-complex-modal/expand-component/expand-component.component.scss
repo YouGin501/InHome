@@ -1,0 +1,110 @@
+@import "../../../../../styles.scss";
+
+.appart-type-holder {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: rgba(245, 241, 241, 1);
+  height: 60px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+
+  .appartment-type-name {
+    color: $base-black-color;
+  }
+}
+
+.button-opened {
+  border: none;
+  background: transparent;
+  background-image: url("../../../../../assets/img/arrow-up-dark.svg");
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+}
+
+.button-closed {
+  border: none;
+  background: transparent;
+  background-image: url("../../../../../assets/img/arrow-down-black.svg");
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+}
+
+.add-apart-area {
+  background-color: rgba(167, 167, 167, 1);
+  border-radius: 5px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  padding: 30px;
+}
+
+.appart-list {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.add-appart-button {
+  background-color: rgba(0, 163, 255, 1);
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 5px;
+}
+
+.appart-item {
+  width: 150px;
+  height: 150px;
+  background-size: cover;
+  border: none;
+  border-radius: 5px;
+  position: relative;
+}
+
+.plus-icon {
+  background-image: url("../../../../../assets/img/plus-icon-dark.svg");
+  background-size: cover;
+  width: 25px;
+  height: 25px;
+}
+
+.delete-button {
+  background-image: url("../../../../../assets/img/close-white.svg");
+  background-size: cover;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  z-index: 5;
+  background-color: transparent;
+  top: 0;
+  border: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .appart-list {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .add-appart-button {
+    width: 180px;
+    height: 180px;
+  }
+
+  .appart-item {
+    width: 180px;
+    height: 180px;
+  }
+}

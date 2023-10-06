@@ -1,0 +1,199 @@
+@import "../../../../styles.scss";
+
+.modal-window {
+  .modal-content-container {
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 140px 220px;
+
+    .modal-content__top-wrapper {
+      display: flex;
+    }
+
+    .modal-content__address-wrapper {
+      flex: 1;
+      margin-left: 40px;
+    }
+
+    .input-without-validation {
+      padding: 15px 0;
+    }
+
+    .input-with-validation {
+      padding: 0px;
+    }
+
+    .desc-input {
+      padding-top: 0px;
+      padding-bottom: 15px;
+    }
+
+    .modal-content__input_container {
+      .modal-content__input {
+        width: 100%;
+        height: 40px;
+        border: none;
+        font-size: 20px;
+        padding: 30px;
+        border-radius: 5px;
+      }
+
+      .invalid-input {
+        border: 2px solid rgba(167, 31, 13, 1);
+      }
+
+      .valid-input {
+        border: none;
+      }
+
+      .modal-content__textarea {
+        width: 100%;
+        height: 120px;
+        border: none;
+        font-size: 20px;
+        padding-top: 30px;
+        padding-left: 30px;
+        border-radius: 5px;
+        resize: none;
+      }
+    }
+
+    .add-post-buttons {
+      display: flex;
+      justify-content: space-between;
+
+      .close-modal-window-button {
+        border: 1px solid $base-white-color;
+        color: white;
+        background: transparent;
+        height: 60px;
+        width: 255px;
+        border-radius: 5px;
+      }
+
+      .submit-modal-window-button {
+        border: none;
+        background-color: $gray-color-1;
+        color: $base-black-color;
+        height: 60px;
+        width: 255px;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  .post-card__create-btn {
+    width: 256px;
+    height: 256px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(217, 217, 217);
+  }
+
+  .custom-modal-header {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    font-size: 24px;
+    font-weight: 400;
+    padding: 29px 20px 0px 20px;
+
+    .header-text {
+      width: calc(100% - 30px);
+      color: $base-white-color;
+      text-align: center;
+      align-self: center;
+      padding-bottom: 50px;
+      font-size: 40px;
+    }
+  }
+
+  .close-button {
+    background-image: url(../../../../assets/img/close-white.svg);
+    background-size: cover;
+    width: 40px;
+    height: 30px;
+    border: 0px;
+    background-color: transparent;
+    align-self: flex-end;
+  }
+
+  .invalid-text-container {
+    height: 30px;
+    width: 80%;
+
+    .invalid-text {
+      color: rgba(167, 31, 13, 1);
+      font-size: 12px;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .modal-window {
+    .modal-content-container {
+      width: 500px;
+      padding-left: 30px;
+      padding-right: 30px;
+      overflow: hidden;
+      overflow-y: auto;
+
+      .add-post-buttons {
+        .close-modal-window-button {
+          width: 150px;
+        }
+
+        .submit-modal-window-button {
+          width: 150px;
+        }
+      }
+
+      .modal-content__top-wrapper {
+        flex-direction: column;
+      }
+
+      .modal-content__address-wrapper {
+        margin-left: 0;
+        width: 100%;
+        margin-top: 30px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .modal-window {
+    .modal-content-container {
+      width: 300px;
+
+      .add-post-buttons {
+        .close-modal-window-button {
+          width: 80px;
+          font-size: 14px;
+        }
+
+        .submit-modal-window-button {
+          width: 80px;
+          font-size: 14px;
+        }
+      }
+
+      .modal-content__input_container {
+        .modal-content__input {
+          width: 100%;
+          height: 40px;
+          border: none;
+          font-size: 14px;
+          padding: 30px;
+          border-radius: 5px;
+        }
+
+        .modal-content__textarea {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+<div class="page-container">
+    <div class="page-header">
+        <a href="./home" class="col path-label">{{ servicesCatalog | translate }}</a>
+        <a href="designs" class="col path-label">{{ design | translate }}</a>
+        <div class="col"></div>
+        <div class="col page-title">{{ design | translate }}</div>
+        <div class="col"></div>
+        <app-dropdown [optionItems]="sortOptions" class="col sort-dropdown"></app-dropdown>
+        <div class="col order-design-container">
+            <button class="order-design-btn">{{ orderDesign | translate }}</button>
+        </div>
+    </div>
+
+    
+    <div class="image-container">
+        <img  *ngFor="let project of topBarProjects; let i = index" 
+        [src]="project.photosUrls[0].url" class="image-container-img" />      
+    </div>
+
+  <div class="row">
+    <div class="col-md-3">
+
+      <div class="filters">
+        <h2>Filters</h2>
+        <h3>Executor</h3>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="checkbox1">
+          <label class="form-check-label" for="checkbox1">Agency</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="checkbox1">
+          <label class="form-check-label" for="checkbox1">Freelancer</label>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-9 mb-4">
+      <div class="row row-something">
+
+          <div *ngFor="let project of currentProjects; let i = index" class="card">
+            <div class="card-info-wrapper">
+              <div class="like-button"></div>
+            </div>
+            <div class="img-container">
+              <img [src]="project.photosUrls[0].url" class="project-img">
+            </div>
+            <div class="card-bottom-info">
+              <div class="price-info">{{ project.price }} UAH</div>
+            </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

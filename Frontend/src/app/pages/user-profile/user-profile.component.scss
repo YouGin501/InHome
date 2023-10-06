@@ -1,0 +1,382 @@
+@import "../../../styles.scss";
+
+.action-button {
+  width: 113px;
+  height: 119px;
+  background-color: $gray-color-1;
+  border-radius: 5px;
+  border: none;
+}
+
+.profile-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 130px;
+
+  .feedback-actions {
+    width: 255px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .action-buttons {
+    width: 255px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.page-container {
+  padding-top: 96px;
+
+  .user-info-holder {
+    display: flex;
+    margin-bottom: 50px;
+
+    .logo-img {
+      width: 255px;
+      height: 255px;
+      min-width: 255px;
+      border-radius: 50%;
+      background-color: rgba(196, 196, 196, 1);
+      margin-right: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-size: cover;
+    }
+
+    .center-info-container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      .info-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        .user-name {
+          font-size: 40px;
+          font-weight: 400;
+          background: linear-gradient(180deg, #f5f1f1 40.1%, #00a3ff 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          text-align: center;
+        }
+
+        .web-site-info {
+          font-size: 20px;
+          font-weight: 400;
+          margin-top: 13px;
+          height: 36px;
+          display: flex;
+          justify-content: space-around;
+          width: 255px;
+
+          .bell-button {
+            background: url("../../../assets/img/bell-icon.svg");
+            background-size: cover;
+            border: none;
+            width: 36px;
+          }
+
+          .likes-button {
+            background: url("../../../assets/img/liked-like.svg");
+            background-size: cover;
+            border: none;
+            width: 36px;
+          }
+
+          .settings-button {
+            background: url("../../../assets/img/settings-icon.svg");
+            background-size: cover;
+            border: none;
+            width: 36px;
+          }
+        }
+      }
+
+      .info-container {
+        display: flex;
+        color: $base-white-color;
+        justify-content: space-between;
+        margin-top: 27px;
+        width: 255px;
+
+        .info-box {
+          display: flex;
+
+          .info-text {
+            padding-right: 10px;
+          }
+        }
+      }
+
+      .user-info-text {
+        margin-top: 45px;
+        color: $base-white-color;
+        font-size: 17px;
+        font-weight: 300;
+        height: 100px;
+        overflow: hidden;
+        overflow-y: auto;
+      }
+
+      .company-button {
+        margin-top: 10px;
+        height: 50px;
+        width: 255px;
+        font-weight: 300;
+        font-size: 17px;
+      }
+
+      .company-button-clicked {
+        background: transparent;
+        border: 1px solid $base-white-color;
+        color: $base-white-color;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  .post-card__wrapper {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-between;
+    gap: 20px;
+
+    .post-card__item {
+      max-width: 256px;
+      max-height: 256px;
+    }
+
+    .post-card__create-btn {
+      width: 256px;
+      height: 256px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(217, 217, 217);
+      border-radius: 5px;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .action-button {
+    width: 70px;
+    height: 80px;
+  }
+
+  .profile-buttons {
+    margin-bottom: 55px;
+
+    .feedback-actions {
+      width: 145px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .action-buttons {
+      width: 145px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .page-container {
+    padding-top: 96px;
+
+    .user-info-holder {
+      display: flex;
+      margin-bottom: 30px;
+
+      .logo-img {
+        width: 145px;
+        height: 145px;
+        min-width: 145px;
+        border-radius: 50%;
+        margin-right: 32px;
+      }
+
+      .center-info-container {
+        .info-header {
+          .user-name {
+            font-size: 30px;
+          }
+
+          .web-site-info {
+            font-size: 20px;
+            margin-top: 13px;
+            height: 36px;
+            width: 150px;
+
+            .bell-button {
+              width: 36px;
+            }
+
+            .likes-button {
+              width: 36px;
+            }
+
+            .settings-button {
+              width: 36px;
+            }
+          }
+        }
+
+        .info-container {
+          margin-top: 18px;
+          width: 145px;
+          font-size: 12px;
+
+          .info-box {
+            display: flex;
+
+            .info-text {
+              padding-right: 10px;
+            }
+          }
+        }
+
+        .user-info-text {
+          margin-top: 15px;
+          font-size: 12px;
+        }
+
+        .company-button {
+          margin-top: 20px;
+          width: 145px;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .post-card__wrapper {
+      display: grid;
+      grid-template-columns: auto auto;
+      gap: 20px;
+
+      .post-card__item {
+        max-width: 320px;
+        max-height: 320px;
+      }
+
+      .post-card__create-btn {
+        width: 320px;
+        height: 320px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .action-button {
+    width: 60px;
+    height: 70px;
+    font-size: 14px;
+  }
+
+  .profile-buttons {
+    margin-bottom: 55px;
+
+    .feedback-actions {
+      width: 130px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .action-buttons {
+      width: 130px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .page-container {
+    padding-top: 96px;
+
+    .user-info-holder {
+      display: flex;
+      margin-bottom: 10px;
+
+      .logo-img {
+        width: 70px;
+        height: 70px;
+        min-width: 70px;
+        border-radius: 50%;
+        margin-right: 32px;
+      }
+
+      .center-info-container {
+        .info-header {
+          .user-name {
+            font-size: 17px;
+          }
+
+          .web-site-info {
+            font-size: 20px;
+            margin-top: 13px;
+            height: 36px;
+            width: 100px;
+
+            .bell-button {
+              width: 20px;
+              height: 20px;
+            }
+
+            .likes-button {
+              width: 20px;
+              height: 20px;
+            }
+
+            .settings-button {
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+
+        .info-container {
+          margin-top: 18px;
+          width: 145px;
+          font-size: 12px;
+
+          .info-box {
+            display: flex;
+
+            .info-text {
+              padding-right: 10px;
+            }
+          }
+        }
+
+        .company-button {
+          height: 30px;
+          margin-top: 20px;
+          width: 145px;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .post-card__wrapper {
+      display: grid;
+      grid-template-columns: auto;
+      justify-content: center;
+      gap: 20px;
+
+      .post-card__item {
+        max-width: 350px;
+        max-height: 350px;
+      }
+
+      .post-card__create-btn {
+        width: 350px;
+        height: 350px;
+      }
+    }
+  }
+}

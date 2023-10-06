@@ -1,0 +1,61 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import "bootstrap/scss/bootstrap.scss";
+@import 'bootstrap/scss/_variables.scss';
+
+
+* {
+    font-family: "Oswald";
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body { 
+    height: 100%;
+}
+body {  
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* blue */
+$base-blue-color: #00A3FF;
+$blue-color-1:#00A3FF33;
+
+/* white */
+$base-white-color: #F5F1F1;
+
+/* black */
+$base-black-color: #070707; 
+
+/*gray*/
+$base-gray-color : #FFFFFF33;
+$gray-color-1: #D9D9D9;
+$gray-color-2: #A7A7A7;
+$gray-color-3: #707070;
+$gray-color-4: #817979;
+
+
+
+
+/*pink*/
+$base-pink-color: #FF005C;
+
+
+$font-family: "Oswald";
+
+
+$screen-md: 1165px !default;
+$screen-sm: 390px !default;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1165px,
+  xxl: 1400px
+);

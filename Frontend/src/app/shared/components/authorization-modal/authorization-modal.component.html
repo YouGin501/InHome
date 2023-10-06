@@ -1,0 +1,58 @@
+<app-modal-window [isOpened]="isOpenedAuthModal" bgColor="#00A3FF33">
+  <div header class="custom-modal-header">
+    <div class="header-text">{{ loginText | translate }}</div>
+    <div>
+      <button class="close-button" (click)="close()"></button>
+    </div>
+  </div>
+  <div class="modal-content-container" body>
+    <form [formGroup]="loginForm">
+      <app-default-input
+        labelText="Email"
+        inputType="text"
+        formControlName="email"
+        [errors]="loginForm.controls['email'].errors"
+        [errorMessage]="'EMAIL_REQUIRED' | translate"
+        [submitAttempt]="submitAttempt"
+        [dirty]="loginForm.controls['email'].dirty"
+        [touched]="loginForm.controls['email'].touched"
+      ></app-default-input>
+      <app-default-input
+        [labelText]="password"
+        inputType="password"
+        formControlName="password"
+        [errors]="loginForm.controls['password'].errors"
+        [errorMessage]="'PASSWORD_REQUIRED' | translate"
+        [submitAttempt]="submitAttempt"
+        [dirty]="loginForm.controls['password'].dirty"
+        [touched]="loginForm.controls['password'].touched"
+      ></app-default-input>
+      <app-default-button
+        [buttonText]="loginBtn"
+        maxWidth="227px"
+        (OnButtonCliked)="login()"
+      ></app-default-button>
+    </form>
+    <app-default-button
+      [buttonText]="facebook"
+      buttonImg="../../../../assets/img/dark-facebook-icon.svg"
+      maxWidth="227px"
+      class="input-item"
+    ></app-default-button>
+    <app-default-button
+      [buttonText]="google"
+      buttonImg="../../../../assets/img/google-icon.svg"
+      maxWidth="227px"
+      class="input-item"
+    ></app-default-button>
+    <div class="input-item link-btn-container">
+      <button class="link-button">{{ forgotPass | translate }}</button>
+    </div>
+    <div class="input-item link-btn-container">
+      <button class="link-button" (click)="goToRegistration()">
+        {{ reg | translate }}
+      </button>
+    </div>
+  </div>
+</app-modal-window>
+<app-registration-modal #regModal [authModal]="this"></app-registration-modal>

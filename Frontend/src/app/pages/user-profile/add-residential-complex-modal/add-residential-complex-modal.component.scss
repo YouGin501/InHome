@@ -1,0 +1,471 @@
+@import "../../../../styles.scss";
+
+.dropdown-half {
+  width: 45%;
+}
+
+.modal-hidden {
+  visibility: hidden;
+}
+
+.modal-window {
+  .modal-content-container {
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 140px 220px;
+    overflow: hidden;
+    overflow-y: auto;
+
+    .modal-content__top-wrapper {
+      display: flex;
+
+      .img-block {
+        display: flex;
+        width: 100%;
+
+        .side-images-container {
+          padding-right: 30px;
+          .side-img {
+            background-color: $gray-color-1;
+            width: 70px;
+            height: 70px;
+            border-radius: 5px;
+            border: none;
+            margin-bottom: 31px;
+          }
+        }
+
+        .main-img-area {
+          background-color: $gray-color-1;
+          width: 100%;
+          height: 374px;
+          min-width: 86%;
+          border-radius: 5px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          .img-counter {
+            padding-bottom: 40px;
+          }
+
+          .img-button-icon {
+            padding-top: 40px;
+          }
+
+          .down-img-buttons {
+            display: flex;
+            width: 240px;
+            justify-content: space-between;
+
+            .img-button {
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              background-color: #f5f1f1;
+            }
+          }
+        }
+      }
+    }
+
+    .modal-content__middle-wrapper {
+      padding: 8px 24px;
+      background-color: $gray-color-1;
+      border-radius: 5px;
+      margin-bottom: 30px;
+
+      .location-row {
+        display: flex;
+
+        .location-label {
+          padding-right: 50px;
+        }
+
+        .location-form {
+          width: 100%;
+        }
+
+        .simple-label {
+          border: none;
+          background-color: transparent;
+          color: $base-black-color;
+        }
+      }
+
+      .pattern-container {
+        display: flex;
+        margin-bottom: 20px;
+        align-items: center;
+
+        .account-icon {
+          width: 60px;
+          height: 60px;
+        }
+
+        .dev-page-label {
+          margin-left: 40px;
+          width: 250px;
+          height: 50px;
+          text-align: center;
+          vertical-align: middle;
+          border: 1px solid $base-black-color;
+          background-color: #f5f1f1;
+          color: $base-black-color;
+          border-radius: 5px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .dev-name-label {
+          border: none;
+          background-color: transparent;
+          color: $base-black-color;
+          padding-left: 47px;
+        }
+      }
+
+      .template-buttons-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 30px;
+
+        .chat-label {
+          width: 85px;
+          height: 50px;
+          text-align: center;
+          vertical-align: middle;
+          border: 1px solid $base-black-color;
+          background-color: #f5f1f1;
+          color: $base-black-color;
+          border-radius: 5px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .chat-icon {
+            background-image: url("../../../../assets/img/chat-icon.svg");
+            background-size: cover;
+            width: 24px;
+            height: 24px;
+            margin-left: 10px;
+          }
+        }
+
+        .department-label {
+          width: 130px;
+          height: 50px;
+          text-align: center;
+          vertical-align: middle;
+          border: 1px solid $base-black-color;
+          background-color: #f5f1f1;
+          color: $base-black-color;
+          border-radius: 5px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .website-label {
+          width: 115px;
+          height: 50px;
+          text-align: center;
+          vertical-align: middle;
+          border: 1px solid $base-black-color;
+          background-color: #f5f1f1;
+          color: $base-black-color;
+          border-radius: 5px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .attendance-label {
+          display: flex;
+          justify-content: space-around;
+          width: 175px;
+          height: 50px;
+          text-align: center;
+          vertical-align: middle;
+          border: 1px solid $base-black-color;
+          background-color: #f5f1f1;
+          color: $base-black-color;
+          border-radius: 5px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .calendar-icon {
+            background-image: url("../../../../assets/img/calendar.svg");
+            background-size: cover;
+            width: 24px;
+            height: 24px;
+            margin-left: 10px;
+          }
+        }
+      }
+
+      .location-part-container {
+        display: flex;
+        justify-content: space-between;
+
+        .modal-content__input_container {
+          width: 45%;
+        }
+      }
+
+      .bottom-input-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+
+        .modal-content__input_container {
+          width: 45%;
+        }
+      }
+
+      .characteristics-label {
+        margin-bottom: 15px;
+      }
+
+      .charecterisitics-head {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+      }
+    }
+
+    .modal-content__address-wrapper {
+      flex: 1;
+      margin-left: 40px;
+    }
+
+    .input-without-validation {
+      padding: 15px 0;
+    }
+
+    .input-with-validation {
+      padding: 0px;
+    }
+
+    .desc-input {
+      padding-top: 0px;
+      padding-bottom: 30px;
+    }
+
+    .input-with-upper-space {
+      margin-top: 15px;
+    }
+
+    .modal-content__input_container {
+      .modal-content__input {
+        width: 100%;
+        height: 40px;
+        border: none;
+        font-size: 20px;
+        padding: 30px;
+        border-radius: 5px;
+      }
+
+      .invalid-input {
+        border: 2px solid rgba(167, 31, 13, 1);
+      }
+
+      .valid-input {
+        border: none;
+      }
+
+      .modal-content__textarea {
+        width: 100%;
+        height: 120px;
+        border: none;
+        font-size: 20px;
+        padding-top: 30px;
+        padding-left: 30px;
+        border-radius: 5px;
+        resize: none;
+        margin-top: 30px;
+      }
+    }
+
+    .add-appartment-type-block {
+      margin-bottom: 30px;
+
+      .appart-type-input {
+        width: 45%;
+        height: 40px;
+        border: none;
+        font-size: 20px;
+        padding: 30px;
+        border-radius: 5px;
+      }
+
+      .appartment-type {
+        border-radius: 5px;
+        border: none;
+        background-color: rgba(217, 217, 217, 1);
+        color: $base-black-color;
+        width: 256px;
+        width: 255px;
+        height: 60px;
+        margin-left: 20px;
+      }
+    }
+
+    .add-post-buttons {
+      display: flex;
+      justify-content: space-between;
+
+      .close-modal-window-button {
+        border: 1px solid $base-white-color;
+        color: white;
+        background: transparent;
+        height: 60px;
+        width: 255px;
+        border-radius: 5px;
+      }
+
+      .submit-modal-window-button {
+        border: none;
+        background-color: $gray-color-1;
+        color: $base-black-color;
+        height: 60px;
+        width: 255px;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  .post-card__create-btn {
+    width: 256px;
+    height: 256px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(217, 217, 217);
+  }
+
+  .custom-modal-header {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    font-size: 24px;
+    font-weight: 400;
+    padding: 29px 20px 0px 20px;
+
+    .header-text {
+      width: calc(100% - 30px);
+      color: $base-white-color;
+      text-align: center;
+      align-self: center;
+      padding-bottom: 20px;
+      font-size: 40px;
+    }
+  }
+
+  .close-button {
+    background-image: url(../../../../assets/img/close-white.svg);
+    background-size: cover;
+    width: 40px;
+    height: 30px;
+    border: 0px;
+    background-color: transparent;
+    align-self: flex-end;
+  }
+
+  .invalid-text-container {
+    height: 30px;
+    width: 80%;
+
+    .invalid-text {
+      color: rgba(167, 31, 13, 1);
+      font-size: 12px;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .modal-window {
+    .modal-content-container {
+      width: 500px;
+      padding: 30px;
+      .modal-content__input_container {
+        .modal-content__input {
+          padding: 25px;
+          font-size: 14px;
+        }
+
+        .modal-content__textarea {
+          padding: 25px;
+          font-size: 14px;
+          margin-top: 30px;
+        }
+      }
+      .modal-content__middle-wrapper {
+        .template-buttons-row {
+          display: grid;
+          grid-template-columns: auto auto;
+          gap: 25px;
+
+          .chat-label {
+            width: 165px;
+          }
+
+          .department-label {
+            width: 165px;
+          }
+
+          .website-label {
+            width: 165px;
+          }
+
+          .attendance-label {
+            width: 165px;
+          }
+        }
+
+        .pattern-container {
+          .dev-page-label {
+            width: 33%;
+          }
+        }
+      }
+
+      .add-appartment-type-block {
+        margin-bottom: 30px;
+
+        .appart-type-input {
+          width: 33%;
+          font-size: 14px;
+        }
+
+        .appartment-type {
+          width: 33%;
+          font-size: 14px;
+        }
+      }
+
+      .add-post-buttons {
+        .close-modal-window-button {
+          width: 150px;
+        }
+
+        .submit-modal-window-button {
+          width: 150px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .modal-window {
+    .modal-content-container {
+      width: 300px;
+    }
+  }
+}

@@ -1,0 +1,88 @@
+<div class="toolbar container">
+  <div class="options-container row text-center">
+    <div class="col-1"></div>
+    <a [routerLink]="['/home']" class="col-sm-2 col-2 col-xl-1 logo-icon-container">
+      <img class="logo-icon" src="../assets/img/logo-icon.svg">
+    </a>
+    <div class="col-1">
+      <button class="menu-button" (click)="menuDropdown.openMenu()" appClickOutside (clickOutside)="menuDropdown.closeMenu()"></button>
+    </div>
+    <div class="col-6 col-xl-4 search-container">
+      <app-search-input></app-search-input>
+    </div>
+    <div class="col-1 lang-switcher">
+      <button (click)="setLang('ua')" class="language-button" [ngClass]="{'active-language-button': currentLanguage === 'ua'}">UA</button>
+      <span>/</span>
+      <button (click)="setLang('en')" class="language-button" [ngClass]="{'active-language-button': currentLanguage === 'en'}">EN</button>
+    </div>
+    <a class="col-1 chat-button" >{{chat | translate}}</a>
+    <a class="col-1 map-button" >{{map | translate}}</a>
+    <div class="user-icon" *ngIf="currentUser" appClickOutside (clickOutside)="closeProfileOptions()">
+      <img src="../assets/img/account-icon.svg" (click)="openProfileOptions()">
+      <div class="dropdown-options" [ngClass]="profileOptionsOpened ? 'dropdown-options-opened' : 'dropdown-options-closed'">
+        <a routerLink="/user-profile/{{currentUser.id}}" class="profile-option first-option" (click)="closeProfileOptions()">Profile</a>
+        <button (click)="logout()" class="profile-option">Log out</button>
+      </div>
+    </div>
+    <span class="col-1 login-button" *ngIf="!currentUser">
+      <button class="no-default-btn-style" (click)="authModal.show('signin')">{{signin | translate}}</button>
+      <span>/</span>
+      <button class="no-default-btn-style" (click)="authModal.show('signup')">{{signup | translate}}</button>
+    </span>
+    <div class="col-1"></div>
+  </div>
+</div>
+<div class="page-holder">
+  <div class="col-10">
+    <app-main-menu-dropdown #menuDropdown></app-main-menu-dropdown>
+    <app-authorization-modal #authModal></app-authorization-modal>
+    <div class="notifications-box">
+      <ng-template #infoNotifications></ng-template>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<footer class="footer">
+  <div class="col-12 col-xl-10 footer-content-container">
+    <div class="footer-content-wrapper">
+      <div class="middle-footer-column-sm">
+        <div class="cfs-label">{{ cfs | translate}}</div>
+        <div class="rights-label">{{ rightsReserved | translate }}</div>
+      </div>
+      <div class="first-footer-column">
+        <div class="logo-icon">
+          <img class="logo-icon" src="../assets/img/logo-icon.svg">
+        </div>
+        <div class="social-media-label">{{ socialMedia | translate }}:</div>
+        <div class="social-media-icons-container">
+          <img class="social-media-icon" src="../../../assets/img/instagram.svg">
+          <img class="social-media-icon" src="../../../assets/img/facebook.svg">
+          <img class="social-media-icon" src="../../../assets/img/twitter.svg">
+        </div>
+      </div>
+      <div class="middle-footer-column">
+        <div class="cfs-label">{{ cfs | translate}}</div>
+        <div class="rights-label">{{ rightsReserved | translate }}</div>
+      </div>
+      <div class="menu-list-container">
+        <ul>
+          <li class="menu-list-item">
+            <a class="menu-list-link">{{services | translate}}</a>
+          </li>
+          <li class="menu-list-item">
+              <a class="menu-list-link">{{newBuildings | translate}}</a>
+          </li>
+          <li class="menu-list-item">
+              <a class="menu-list-link">{{selling | translate}}</a>
+          </li>
+          <li class="menu-list-item">
+              <a [routerLink]="['/rents']" class="menu-list-link">{{rent | translate}}</a>
+          </li>
+          <li class="menu-list-item">
+              <a [routerLink]="['/designs']" class="menu-list-link">{{design | translate}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>

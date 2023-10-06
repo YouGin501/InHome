@@ -1,0 +1,15 @@
+<div class="dropdown-container" appClickOutside (clickOutside)="onOutsideClick($event)">
+  <button class="dropdown-button" (click)="openDropdown()">
+    <div class="dropdown-selected-option">
+      {{ currentSelection?.title | translate }}
+    </div>
+    <div class="down-arrow"></div>
+  </button>
+  <div class="dropdown-options" *ngIf="dropdownOpened">
+    <ng-container *ngFor="let option of options">
+      <div class="dropdown-item" (click)="setCurrentSelection(option)" *ngIf="option.value != currentSelection.value">
+        {{ option?.title | translate }}
+      </div>
+    </ng-container>
+  </div>
+</div>

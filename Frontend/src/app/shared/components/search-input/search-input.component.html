@@ -1,0 +1,26 @@
+<div class="search-container">
+    <input class="search" type="search" [placeholder]="'SEARCH' | translate" (keyup)="onSearch($event)" [readonly]="isReadOnly" (click)="removeReadonly()">
+    <div class="search-options" [ngClass]="{'search-options-closed ': !isDropdownListOpened}" appClickOutside (clickOutside)="onOutsideClick($event)">
+        <div class="in-category-label">{{ searchInCategory | translate }}</div>
+        <button class="search-category-button">
+            <img src="../../../../assets/img/search-category-icon.svg"/>
+            <div class="search-category">{{ newBuildings | translate }}</div>
+        </button>
+        <button class="search-category-button">
+            <img src="../../../../assets/img/search-category-icon.svg"/>
+            <div class="search-category">{{ selling | translate }}</div>
+        </button>
+        <button class="search-category-button">
+            <img src="../../../../assets/img/search-category-icon.svg"/>
+            <div class="search-category">{{ rent | translate }}</div>
+        </button>
+        <button class="search-category-button">
+            <img src="../../../../assets/img/search-category-icon.svg"/>
+            <div class="search-category">{{ design | translate }}</div>
+        </button>
+        <button class="search-category-button last-category-button">
+            <img src="../../../../assets/img/search-category-icon.svg"/>
+            <div class="search-category">{{ news | translate }}</div>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,115 @@
+@import '../../../../styles.scss';
+
+.dropdown-container {
+    background-color: $gray-color-1;
+    position: absolute;
+    color: $base-black-color;
+    padding-top: 9px;
+
+    left: 15px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 390px;
+    min-height: 669px;
+    font-size: 17px;
+
+    .close-button {
+        background-image: url(../../../../assets/img/close-icon.svg);
+        width: 30px;
+        height: 30px;
+        border: 0px;
+        background-color: transparent;
+    }
+
+    .menu-item {
+        margin-top: 11px;
+        padding-left: 41px;
+    }
+
+    .map-item {
+        padding-left: 41px;
+        margin-bottom: 12px;
+        margin-top: 12px;
+    }
+
+    .about-us-item {
+        margin-bottom: 20px;
+    }
+
+    .profile-item {
+        margin-top: 20px;
+    }
+
+    .first-menu-item {
+        margin-top: 0px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding-right: 23px;
+    }
+
+    a {
+        text-decoration: none;
+        color: $base-black-color;
+    }
+
+    .line {
+        height: 2px;
+        background: $gray-color-2;
+        width: 100%;
+    }
+
+    .reg-item {
+        border: none;
+        background-color: transparent;
+        width: fit-content;
+    }
+
+    .lang-switcher {
+        display: flex;
+        margin-bottom: 26px;
+
+        .language-button{
+            background:none;
+            border:none;
+            outline:none;
+            font-size: 14px;
+            color: $base-black-color;
+        }
+
+        .active-language-button {
+            color: $base-blue-color;
+            text-decoration: underline;
+        }
+    }
+
+    .social-media-icons-container {
+        width: 146px;
+        display: flex;
+        justify-content: space-between;
+
+        .social-media-icon {
+            width: 32px;
+            height: 32px;
+        }
+    }
+
+    .social-item {
+        margin-top: 20px;
+    }
+}
+
+.dropdown-container-closed {
+    display: none;
+}
+
+@media screen and (max-width: 576px) {
+    .dropdown-container {
+        width: 290px;
+        min-height: 550px;
+    }
+
+}

@@ -1,0 +1,127 @@
+<app-modal-window
+  [isOpened]="isModalOpened"
+  bgColor="#00a3ff33"
+  class="modal-window"
+>
+  <div header class="custom-modal-header">
+    <button class="close-button" (click)="closeModal()"></button>
+  </div>
+  <div class="modal-content-container" body [formGroup]="postForm">
+    <div class="upper-container">
+      <div class="post-card__create-btn">
+        <img src="assets/cross/add-icon.svg" (click)="photoInput.click()" />
+        <input
+          #photoInput
+          type="file"
+          (change)="onPhotoInput($event)"
+          style="display: none"
+          accept=".png,.jpg"
+        />
+      </div>
+      <div class="upper-inputs">
+        <div class="modal-content__input_container input-with-validation">
+          <input
+            type="text"
+            class="modal-content__input"
+            placeholder="Title"
+            formControlName="title"
+            [ngClass]="postForm.controls['title'].errors?.['required'] && postForm.touched && postForm.invalid ? 'invalid-input' : 'valid-input'"
+          />
+          <div class="invalid-text-container">
+            <div
+              *ngIf="postForm.controls['title'].errors?.['required'] && postForm.touched && postForm.invalid"
+              class="invalid-text"
+            >
+              Title field is required
+            </div>
+          </div>
+        </div>
+        <div class="modal-content__input_container desc-input">
+          <textarea
+            class="modal-content__textarea"
+            placeholder="Description"
+            formControlName="description"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="double-inputs-container">
+      <div
+        class="modal-content__input_container input-with-validation half-input"
+      >
+        <input
+          type="number"
+          [placeholder]="'LIVING_AREA' | translate"
+          class="modal-content__input"
+          formControlName="livingSpace"
+          [ngClass]="postForm.controls['livingSpace'].errors?.['required'] && postForm.touched && postForm.invalid ? 'invalid-input' : 'valid-input'"
+        />
+        <div class="invalid-text-container">
+          <div
+            *ngIf="postForm.controls['livingSpace'].errors?.['required'] && postForm.touched && postForm.invalid"
+            class="invalid-text"
+          >
+            Living space field is required
+          </div>
+        </div>
+      </div>
+      <div
+        class="modal-content__input_container input-with-validation half-input"
+      >
+        <input
+          type="number"
+          [placeholder]="'ROOMS_NUMBER' | translate"
+          min="1"
+          class="modal-content__input half-input"
+          formControlName="roomsNumber"
+          [ngClass]="postForm.controls['roomsNumber'].errors?.['required'] && postForm.touched && postForm.invalid ? 'invalid-input' : 'valid-input'"
+        />
+        <div class="invalid-text-container">
+          <div
+            *ngIf="postForm.controls['roomsNumber'].errors?.['required'] && postForm.touched && postForm.invalid"
+            class="invalid-text"
+          >
+            Number of rooms field is required
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="price-container">
+      <div
+        class="modal-content__input_container input-with-validation price-input"
+      >
+        <input
+          type="number"
+          [placeholder]="'PRICE' | translate"
+          class="modal-content__input"
+          formControlName="price"
+          [ngClass]="postForm.controls['price'].errors?.['required'] && postForm.touched && postForm.invalid ? 'invalid-input' : 'valid-input'"
+        />
+        <div class="invalid-text-container">
+          <div
+            *ngIf="postForm.controls['price'].errors?.['required'] && postForm.touched && postForm.invalid"
+            class="invalid-text"
+          >
+            Price field is required
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="add-post-buttons">
+      <button
+        type="button"
+        class="close-modal-window-button"
+        (click)="closeModal()"
+      >
+        {{ closeText | translate }}
+      </button>
+      <button
+        type="submit"
+        class="submit-modal-window-button"
+        (click)="createPost()"
+      >
+        {{ publishText | translate }}
+      </button>
+    </div>
+  </div>
+</app-modal-window>

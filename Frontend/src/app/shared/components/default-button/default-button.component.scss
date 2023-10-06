@@ -1,0 +1,29 @@
+@import '../../../../styles.scss';
+
+.btn-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .btn {
+        background-color: rgba(0, 163, 255, 1);
+        border: 0;
+        width: 100%;
+        padding: 9px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $base-white-color;
+        font-size: 17px;
+        font-weight: 300;
+
+        .btn-img-container {
+            margin-right: 30px;
+
+            .button-img {
+                width: 32px;
+                height: 32px;
+            }
+        }
+    }
+}

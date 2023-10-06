@@ -1,0 +1,313 @@
+@import "../../../styles.scss";
+
+.page-container {
+  min-width: 100%;
+  padding-left: 0px;
+  padding-right: 0px;
+
+  .info-block-container {
+    margin: 16px 0px 0px 0px;
+
+    .left-info-block {
+      height: 350px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-top: 19px;
+      padding-left: 0px;
+      white-space: nowrap;
+
+      .menu-list-item {
+        list-style-type: none;
+        line-height: 25.19px;
+        .menu-list-link {
+          min-height: 32px;
+          width: 145px;
+          text-align: start;
+          background: none;
+          border: none;
+          outline: none;
+          color: $base-white-color;
+          font-size: 17px;
+          margin-bottom: 11px;
+          text-decoration: none;
+          display: block;
+        }
+      }
+
+      .social-media-container {
+        .social-media-label {
+          color: $base-white-color;
+          font-size: 17px;
+          margin-bottom: 16px;
+        }
+
+        .social-media-icons-container {
+          width: 146px;
+          display: flex;
+          justify-content: space-between;
+
+          .social-media-icon {
+            width: 32px;
+            height: 32px;
+          }
+        }
+      }
+    }
+
+    .right-info-block {
+      background-color: $base-gray-color;
+      min-height: 350px;
+      color: $base-white-color;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 19px 81px;
+
+      .options-title {
+        font-size: 28px;
+      }
+
+      .registration-link {
+        font-size: 20px;
+        color: inherit;
+        text-decoration: underline;
+        text-align: center;
+      }
+
+      .registration-options-container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        .registration-option {
+          text-align: center;
+
+          .option-img {
+            margin-top: 17px;
+          }
+        }
+      }
+    }
+  }
+
+  .bottom-registration {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+    margin-bottom: 81px;
+
+    .registration-label {
+      color: $base-white-color;
+      text-decoration: underline;
+      text-align: center;
+      font-size: 28px;
+      margin-right: 29px;
+    }
+
+    .registarte-button {
+      padding: 4px 53px;
+      color: $base-white-color;
+      border-radius: 5px;
+      border: 0;
+      background-color: $base-blue-color;
+    }
+  }
+
+  .posts-container {
+    max-width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+
+    .subscribed-projects {
+      display: flex;
+      padding-left: 144px;
+      padding-right: 144px;
+      padding-bottom: 75px;
+      overflow-x: auto;
+
+      .subscribed-scroll {
+        max-width: 100%;
+        overflow: scroll;
+        display: flex;
+        .sub-project-container {
+          .sub-project-img {
+            width: 113px;
+            height: 117px;
+            object-fit: cover;
+          }
+        }
+      }
+
+      .not-first-card {
+        margin-left: 30px;
+      }
+    }
+
+    .filters-section {
+      margin-bottom: 27px;
+      display: flex;
+      justify-content: end;
+
+      .first-filter {
+        margin-right: 20px;
+      }
+
+      .small-filter {
+        display: none;
+      }
+    }
+  }
+}
+
+.modal-window {
+  .modal-content-container {
+    width: 198px;
+    height: 280px;
+    padding: 13px 8px;
+
+    .first-filter-sm {
+      margin-bottom: 33px;
+    }
+  }
+
+  .custom-modal-header {
+    display: flex;
+    padding: 13px 9px;
+    color: $base-white-color;
+    align-items: center;
+    font-size: 18px;
+
+    .arrow-back-head {
+      background-image: url("../../../assets/img/arrow_left.svg");
+      border: none;
+      background-color: transparent;
+      height: 22px;
+      width: 22px;
+      background-size: cover;
+    }
+
+    .header-text {
+      margin-left: 22px;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .page-container {
+    .info-block-container {
+      .left-info-block {
+        display: none;
+      }
+
+      .right-info-block {
+        padding: 31px 19px;
+      }
+    }
+
+    .bottom-registration {
+      flex-direction: column;
+      align-items: center;
+
+      .registration-label {
+        margin-right: 0;
+        margin-bottom: 25px;
+      }
+
+      .registarte-button {
+        width: fit-content;
+      }
+    }
+
+    .posts-container {
+      width: 100%;
+      max-width: 100%;
+
+      .subscribed-projects {
+        padding-left: 85px;
+        padding-right: 85px;
+        padding-bottom: 50px;
+
+        .subscribed-scroll {
+          .sub-project-container {
+            .sub-project-img {
+              width: 150px;
+              height: 155px;
+              object-fit: cover;
+            }
+          }
+        }
+
+        .not-first-card {
+          margin-left: 20px;
+        }
+      }
+
+      .filters-section {
+        .first-filter {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .page-container {
+    .posts-container {
+      width: 100%;
+      max-width: 100%;
+
+      .subscribed-projects {
+        padding-left: 47px;
+        padding-right: 47px;
+        padding-bottom: 30px;
+
+        .subscribed-scroll {
+          .sub-project-container {
+            .sub-project-img {
+              width: 72px;
+              height: 72px;
+              object-fit: cover;
+            }
+          }
+        }
+
+        .not-first-card {
+          margin-left: 20px;
+        }
+      }
+
+      .filters-section {
+        .small-filter {
+          padding-top: 10px;
+          padding-bottom: 10px;
+          display: flex;
+          justify-content: center;
+          width: 118px;
+          background-color: $base-blue-color;
+          color: $base-white-color;
+          border: none;
+          border-radius: 5px;
+          font-size: 13px;
+          align-items: center;
+
+          .filter-img {
+            background-image: url("../../../assets/img/filters-icon.svg");
+            background-size: cover;
+            width: 10px;
+            height: 10px;
+            margin-right: 10px;
+          }
+        }
+
+        .dropdown-filter {
+          display: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+<app-modal-window
+  [isOpened]="isOpenedModal"
+  bgColor="#00A3FF33"
+  class="modal-window"
+>
+  <div header class="custom-modal-header">
+    <button class="close-button" (click)="closeModal()"></button>
+    <div class="header-text">{{ feedbacksText | translate }}</div>
+  </div>
+  <div class="modal-content-container" body>
+    <div class="feedbacks-container">
+      <div *ngFor="let feedback of feedbacks" class="feedback-card">
+        <div class="user-header">
+          <img [src]="feedback.author?.photo?.url" class="user-img" />
+          <div>{{ feedback.author?.name }}</div>
+        </div>
+        <div>
+          {{ feedback.text }}
+        </div>
+      </div>
+    </div>
+  </div>
+</app-modal-window>

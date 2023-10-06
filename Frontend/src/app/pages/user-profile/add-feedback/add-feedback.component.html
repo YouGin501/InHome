@@ -1,0 +1,39 @@
+<app-modal-window
+  [isOpened]="isOpenedModal"
+  bgColor="#00A3FF33"
+  class="modal-window"
+>
+  <div header class="custom-modal-header">
+    <button class="close-button" (click)="closeModal()"></button>
+    <div class="header-text">{{ writeFeedbackText | translate }}</div>
+  </div>
+  <div class="modal-content-container" body>
+    <form [formGroup]="feedbackForm" class="feedback-form">
+      <textarea
+        class="modal-content__textarea"
+        formControlName="feedbackText"
+        [ngClass]="feedbackForm.controls['feedbackText'].errors?.['required'] && feedbackForm.controls['feedbackText'].touched && feedbackForm.controls['feedbackText'].invalid ? 'invalid-input' : 'valid-input'"
+      ></textarea>
+      <div class="invalid-text-container">
+        <div
+          *ngIf="feedbackForm.controls['feedbackText'].errors?.['required'] && feedbackForm.controls['feedbackText'].touched && feedbackForm.controls['feedbackText'].invalid"
+          class="invalid-text"
+        >
+          Please enter feedback text
+        </div>
+      </div>
+      <div class="add-feedback-buttons">
+        <button type="button" class="close-modal-window-button">
+          {{ closeText | translate }}
+        </button>
+        <button
+          type="submit"
+          class="submit-modal-window-button"
+          (click)="createFeedback()"
+        >
+          {{ sendText | translate }}
+        </button>
+      </div>
+    </form>
+  </div>
+</app-modal-window>

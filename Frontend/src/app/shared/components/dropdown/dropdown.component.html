@@ -1,0 +1,11 @@
+<div class="dropdown-container" appClickOutside (clickOutside)="onOutsideClick($event)">
+    <div class="selected-container">
+        <div>{{ selectedOption?.valueForTranslate | translate }}</div>
+        <button class="dropdown-open-btn" (click)="openDropdownList()"></button>
+    </div>
+    <ul class="dropdown-list" [ngClass]="{'dropdown-list-hidden ': dropdownListHidden}" (mouseleave)="closeDropdown()">
+        <li *ngFor="let option of optionItems; let i = index" (click)="selectItem(option)" class="dropdown-item" [ngClass]="{'last-dropdown-item': i === optionItems.length-1}">
+            {{ option.valueForTranslate | translate }}
+        </li>
+    </ul>
+</div>

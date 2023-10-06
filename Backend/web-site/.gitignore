@@ -1,0 +1,60 @@
+# Виключити файли, створені Visual Studio
+*.obj
+*.exe
+*.pdb
+*.user
+*.aps
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.log
+*.lib
+*.sbr
+*.scc
+*.sln.docstates
+
+# Виключити файли, створені MSBuild
+*_i.obj
+*_p.obj
+*.ilk
+*.meta
+*.msi
+*.msix
+*.msm
+*.msp
+*.pdb
+*.pfx
+*.vsix
+*.zip
+*.appx
+
+# Виключити файли, створені .NET Core
+*.dll
+*.exe
+*.pdb
+*.nupkg
+*.so
+*.dylib
+*.dll.a
+
+# Виключити файли, створені Visual Studio
+[Tt]humbs.db
+*.DS_Store
+
+# Виключити папки bin, obj та .vs для всіх проектів
+/*/bin/
+/*/obj/
+/.vs/
+
+# Виключити файли, створені JetBrains Rider
+.idea/
+
+# Виключити файли, створені Visual Studio Code
+.vscode/

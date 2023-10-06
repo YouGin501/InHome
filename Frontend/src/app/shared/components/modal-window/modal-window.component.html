@@ -1,0 +1,10 @@
+<div class="modal" [ngClass]="isOpened ? 'modal-opened' : 'modal-closed'">
+    <div class="modal-blure">
+        <div class="modal-content" [ngStyle]="{ backgroundColor: bgColor }">
+            <div>
+                <ng-content select="[header]"></ng-content>
+            </div>
+            <ng-content select="[body]"></ng-content>
+        </div>
+    </div>
+</div>

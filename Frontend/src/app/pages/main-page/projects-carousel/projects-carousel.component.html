@@ -1,0 +1,168 @@
+<div class="carousel-container">
+    <div class="most-favorite-label">
+        {{currentPageInfo.monthFavorities | translate}}
+    </div>
+    <div class="control-bottom-container control-bottom-container-sm">
+        <button class="down-arrow" (click)="switchPage(currentPageInfo.leftArrowLabel)">
+            <img src="../../../../assets/img/arrow_left.svg">
+            <div>{{ currentPageInfo.leftArrowLabel | translate }}</div>
+        </button>
+        <button class="down-arrow right-arrow" (click)="switchPage(currentPageInfo.rightArrowLabel)">
+            <div>{{ currentPageInfo.rightArrowLabel | translate }}</div>
+            <img src="../../../../assets/img/arrow_right.svg">
+        </button>
+    </div>
+    <div class="row-container row-first">
+        <ng-container *ngFor="let project of notTopProjects; let i = index">
+            <div *ngIf="i===0" class="card-container big-card-container first-container-in-row">
+                <div class="card-info-wrapper card-info-wrapper-first-in-row">
+                    <div class="card-info-header">
+                        <div class="card-advertizement" *ngIf="project.advertisingLabel">{{project.advertisingLabel}}</div>
+                        <button class="like-button"></button>
+                    </div>
+                    <div class="card-bottom-info card-bottom-info-first-in-row">
+                        <div class="card-company-name">{{project.user?.name}}</div>
+                        <div class="card-info-title">{{project.title}}</div>
+                        <div class="price-info">
+                            <span *ngIf="currentPageInfo.pageName === this.newBuildings">{{ from | translate }}</span>
+                            {{project.price}}
+                        </div>
+                    </div>
+                </div>
+                <div class="img-container">
+                    <img [src]=project.photosUrls[0].url class="project-img">
+                </div>
+            </div>
+            <div *ngIf="i===1" class="card-container small-card-container container-with-gaps">
+                <div class="card-info-wrapper card-info-wrapper-with-gaps">
+                    <div class="card-info-header">
+                        <div class="card-advertizement" *ngIf="project.advertisingLabel">{{project.advertisingLabel}}</div>
+                        <button class="like-button"></button>
+                    </div>
+                    <div class="card-bottom-info card-bottom-info-with-gaps">
+                        <div class="card-company-name">{{project.user?.name}}</div>
+                        <div class="card-info-title">{{project.title}}</div>
+                        <div class="price-info">
+                            <span *ngIf="currentPageInfo.pageName === this.newBuildings">{{ from | translate }}</span>
+                            {{project.price}}
+                        </div>
+                    </div>
+                </div>
+                <div class="img-container">
+                    <img [src]=project.photosUrls[0].url class="project-img">
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngFor="let project of topProjects; let i = index">
+            <div *ngIf="i<2" class="card-container small-card-container" [ngClass]="i===1 ? 'last-container-in-row' : 'container-with-gaps'">
+                <div class="card-info-wrapper" [ngClass]="i===1 ? 'card-info-wrapper-first-in-row' : 'card-info-wrapper-with-gaps'">
+                    <div>
+                        <div class="card-info-header">
+                            <div class="card-advertizement" *ngIf="project.advertisingLabel">{{project.advertisingLabel}}</div>
+                            <button class="like-button"></button>
+                        </div>
+                        <div class="top-label">{{ top | translate}}</div>
+                    </div>
+                    <div class="card-bottom-info card-bottom-info-with-gaps">
+                        <div class="card-company-name">{{project.user?.name}}</div>
+                        <div class="card-info-title">{{project.title}}</div>
+                        <div class="price-info">
+                            <span *ngIf="currentPageInfo.pageName === this.newBuildings">{{ from | translate }}</span>
+                            {{project.price}}
+                        </div>
+                    </div>
+                </div>
+                <div class="img-container">
+                    <img [src]=project.photosUrls[0].url class="project-img">
+                </div>
+            </div>
+        </ng-container>
+    </div>
+    <div class="row-container">
+        <ng-container *ngFor="let project of notTopProjects; let i = index">
+            <div *ngIf="i>1 && i<5" class="card-container small-card-container" [ngClass]="i > 2 ? 'container-with-gaps' : 'first-container-in-row'">
+                <div class="card-info-wrapper" [ngClass]="i > 2 ? 'card-info-wrapper-with-gaps' : 'card-info-wrapper-first-in-row'">
+                    <div class="card-info-header">
+                        <div class="card-advertizement" *ngIf="project.advertisingLabel">{{project.advertisingLabel}}</div>
+                        <button class="like-button"></button>
+                    </div>
+                    <div class="card-bottom-info card-bottom-info-with-gaps">
+                        <div class="card-company-name">{{project.user?.name}}</div>
+                        <div class="card-info-title">{{project.title}}</div>
+                        <div class="price-info">
+                            <span *ngIf="currentPageInfo.pageName === this.newBuildings">{{ from | translate }}</span>
+                            {{project.price}}
+                        </div>
+                    </div>
+                </div>
+                <div class="img-container">
+                    <img [src]=project.photosUrls[0].url class="project-img">
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngFor="let project of topProjects; let i = index">
+            <div *ngIf="i>1" class="card-container big-card-container last-container-in-row">
+                <div class="card-info-wrapper card-info-wrapper-first-in-row">
+                    <div>
+                        <div class="card-info-header">
+                            <div class="card-advertizement" *ngIf="project.advertisingLabel">{{project.advertisingLabel}}</div>
+                            <button class="like-button"></button>
+                        </div>
+                        <div class="top-label">{{ top | translate}}</div>
+                    </div>
+                    <div class="card-bottom-info card-bottom-info-with-gaps">
+                        <div class="card-company-name">{{project.user?.name}}</div>
+                        <div class="card-info-title">{{project.title}}</div>
+                        <div class="price-info">
+                            <span *ngIf="currentPageInfo.pageName === this.newBuildings">{{ from | translate }}</span>
+                            {{project.price}}
+                        </div>
+                    </div>
+                </div>
+                <div class="img-container">
+                    <img [src]=project.photosUrls[0].url class="project-img">
+                </div>
+            </div>
+        </ng-container>
+    </div>
+    <div class="small-row-container">
+        <div class="card-container" *ngFor="let project of allSortedProjects; let i = index" [ngClass]="i%2 ? 'last-container-in-row' : 'first-container-in-row'">
+            <div class="card-info-wrapper card-info-wrapper-first-in-row">
+                <div>
+                    <div class="card-info-header">
+                        <div class="card-advertizement" *ngIf="project.advertisingLabel">{{project.advertisingLabel}}</div>
+                        <button class="like-button"></button>
+                    </div>
+                    <div class="top-label" *ngIf="i<3">{{ top | translate}}</div>
+                </div>
+                <div class="card-bottom-info card-bottom-info-with-gaps">
+                    <div class="card-company-name">{{project.user?.name}}</div>
+                    <div class="card-info-title">{{project.title}}</div>
+                    <div class="price-info">
+                        <span *ngIf="currentPageInfo.pageName === this.newBuildings">{{ from | translate }}</span>
+                        {{project.price}}
+                    </div>
+                </div>
+            </div>
+            <div class="img-container">
+                <img [src]=project.photosUrls[0].url class="project-img">
+            </div>
+        </div>
+    </div>
+    <div class="control-bottom-container">
+        <button class="down-arrow" (click)="switchPage(currentPageInfo.leftArrowLabel)">
+            <img src="../../../../assets/img/arrow_left.svg">
+            <div>{{ currentPageInfo.leftArrowLabel | translate }}</div>
+        </button>
+        <div class="round-buttons-container">
+            <button class="round-button" (click)="switchPage(this.newBuildings)"></button>
+            <button class="round-button page-button" (click)="switchPage(this.selling)"></button>
+            <button class="round-button page-button" (click)="switchPage(this.rent)"></button>
+            <button class="round-button page-button" (click)="switchPage(this.design)"></button>
+        </div>
+        <button class="down-arrow right-arrow" (click)="switchPage(currentPageInfo.rightArrowLabel)">
+            <div>{{ currentPageInfo.rightArrowLabel | translate }}</div>
+            <img src="../../../../assets/img/arrow_right.svg">
+        </button>
+    </div>
+</div>

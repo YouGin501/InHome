@@ -1,0 +1,152 @@
+<div class="container page-container">
+  <div class="row info-block-container">
+    <div class="col-3 left-info-block">
+      <ul>
+        <li class="menu-list-item">
+          <a href="./" class="menu-list-link">{{ newBuildings | translate }}</a>
+        </li>
+        <li class="menu-list-item">
+          <a href="./" class="menu-list-link">{{ selling | translate }}</a>
+        </li>
+        <li class="menu-list-item">
+          <a href="./" class="menu-list-link">{{ rent | translate }}</a>
+        </li>
+        <li class="menu-list-item">
+          <a [routerLink]="'/designs'" class="menu-list-link">{{
+            design | translate
+          }}</a>
+        </li>
+        <li class="menu-list-item">
+          <a href="./" class="menu-list-link">{{ aboutUs | translate }}</a>
+        </li>
+      </ul>
+      <div class="social-media-container">
+        <div class="social-media-label">{{ weInSocialMedia | translate }}</div>
+        <div class="social-media-icons-container">
+          <img
+            class="social-media-icon"
+            src="../../../assets/img/instagram.svg"
+          />
+          <img
+            class="social-media-icon"
+            src="../../../assets/img/facebook.svg"
+          />
+          <img
+            class="social-media-icon"
+            src="../../../assets/img/twitter.svg"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="user-info-container">
+    <div class="user-info-label">{{ userInfo | translate }}</div>
+    <div class="logo-row">
+      <button class="logo-img" (click)="photoInput.click()" [style.backgroundImage]="userLogo">
+        <div class="logo-label" *ngIf="!currentUser?.photo?.url">logo</div>
+        <input
+          #photoInput
+          type="file"
+          (change)="onPhotoInput($event)"
+          style="display: none"
+          accept=".png,.jpg"
+        />
+      </button>
+      <div class="input-box">
+        <input
+          type="text"
+          [placeholder]="'NAME_ORG' | translate"
+          class="user-input"
+          [(ngModel)]="name"
+          name="name"
+          [disabled]="isNameDisabled"
+          required
+        />
+        <button class="edit-btn" (click)="enableName()"></button>
+      </div>
+    </div>
+    <div class="input-box info-row">
+      <textarea
+        class="info-area"
+        [placeholder]="'NAME_ORG' | translate"
+        [(ngModel)]="information"
+        name="information"
+        [disabled]="isInfoDisabled"
+      ></textarea>
+      <button class="edit-btn" (click)="enableInfo()"></button>
+    </div>
+    <div class="password-label">{{ passwordText | translate }}</div>
+    <div class="email-box">
+      <div class="email-box-input">
+        <label for="email">Email:</label>
+        <input
+          id="email"
+          [(ngModel)]="email"
+          name="email"
+          [disabled]="isEmailDisabled"
+          required
+        />
+      </div>
+      <button class="edit-btn" (click)="enableEmail()"></button>
+    </div>
+    <div class="change-password-box">
+      <div class="change-text">{{ changePassword | translate }}</div>
+      <button class="edit-btn"></button>
+    </div>
+    <div class="documents-box">
+      <button class="documents-button" (click)="fileInput.click()">
+        {{ documentsText | translate }}
+        <div class="plus-icon"></div>
+        <input
+          #fileInput
+          type="file"
+          (change)="onFileInput($event)"
+          style="display: none"
+          accept=".pdf"
+          multiple="multiple"
+        />
+      </button>
+    </div>
+    <div class="documents-box">
+      <button
+        class="documents-button documents-button-all"
+        (click)="openModal()"
+      >
+        {{ allDocumentsText | translate }}
+      </button>
+    </div>
+    <div class="down-buttons">
+      <button class="back-btn" (click)="goBack()">{{ backText | translate }}</button>
+      <button class="ok-btn" (click)="sendUpdate()">OK</button>
+    </div>
+  </div>
+</div>
+<app-modal-window
+  [isOpened]="isOpenedModal"
+  bgColor="#00A3FF33"
+  class="modal-window"
+>
+  <div header class="custom-modal-header">
+    <button class="close-button" (click)="closeModal()"></button>
+    <div class="header-text">{{ documentsText | translate }}</div>
+  </div>
+  <div class="modal-content-container" body>
+    <div *ngIf="currentUser?.documents?.length" class="doc-box">
+      <ng-container *ngFor="let document of currentUser?.documents">
+        <button
+          class="close-button"
+          (click)="deleteDocument(document)"
+        ></button>
+        <iframe
+          [src]="document.url"
+          frameborder="0"
+          width="100%"
+          height="100%"
+          class="document-item"
+        >
+        </iframe>
+      </ng-container>
+    </div>
+    <div *ngIf="!currentUser?.documents?.length">No documents uploaded</div>
+  </div>
+</app-modal-window>

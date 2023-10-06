@@ -1,0 +1,22 @@
+<div class="blure-overlay">
+  <div
+    [ngClass]="
+      messageType === 'error' ? 'container-error' : 'container-success'
+    "
+  >
+    <div class="info-header">
+      <div *ngIf="messageType === 'error'" class="error-icon"></div>
+      <div *ngIf="messageType === 'success'" class="success-icon"></div>
+      <div>
+        <div *ngIf="messageType === 'error'">{{ errorText | translate }}</div>
+        <div *ngIf="messageType === 'success'">
+          {{ successText | translate }}
+        </div>
+      </div>
+      <button class="close-button" (click)="close()"></button>
+    </div>
+    <div class="message-text">
+      {{ message }}
+    </div>
+  </div>
+</div>

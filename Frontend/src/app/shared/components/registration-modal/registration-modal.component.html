@@ -1,0 +1,75 @@
+<app-modal-window
+  [isOpened]="isOpenedModal"
+  (onClosedModal)="close()"
+  [pageTitle]="signup | translate"
+  bgColor="#00A3FF33"
+>
+  <div header class="custom-modal-header">
+    <div class="header-text">{{ signup | translate }}</div>
+    <div>
+      <button class="close-button" (click)="close()"></button>
+    </div>
+  </div>
+  <div body>
+    <form class="modal-content-container" [formGroup]="regForm">
+      <app-default-input
+        labelText="Email"
+        inputType="email"
+        formControlName="email"
+        [errors]="regForm.controls['email'].errors"
+        [errorMessage]="'EMAIL_REQUIRED' | translate"
+        [dirty]="regForm.controls['email'].dirty"
+        [touched]="regForm.controls['email'].touched"
+        [submitAttempt]="submitAttempt"
+      ></app-default-input>
+      <app-default-input
+        [labelText]="password"
+        inputType="password"
+        formControlName="password"
+        [errors]="regForm.controls['password'].errors"
+        [errorMessage]="'PASSWORD_REQUIRED' | translate"
+        [dirty]="regForm.controls['password'].dirty"
+        [touched]="regForm.controls['password'].touched"
+        [submitAttempt]="submitAttempt"
+      ></app-default-input>
+      <app-default-input
+        [labelText]="name"
+        inputType="text"
+        formControlName="name"
+        [errors]="regForm.controls['name'].errors"
+        [errorMessage]="'NAME_REQUIRED' | translate"
+        [dirty]="regForm.controls['name'].dirty"
+        [touched]="regForm.controls['name'].touched"
+        [submitAttempt]="submitAttempt"
+      ></app-default-input>
+      <app-default-input
+        [labelText]="surname"
+        inputType="text"
+        formControlName="surname"
+        [errors]="regForm.controls['surname'].errors"
+        [errorMessage]="'SURNAME_REQUIRED' | translate"
+        [dirty]="regForm.controls['surname'].dirty"
+        [touched]="regForm.controls['surname'].touched"
+        [submitAttempt]="submitAttempt"
+      ></app-default-input>
+      <app-default-button
+        [buttonText]="regAction"
+        maxWidth="227px"
+        (click)="registrate()"
+      ></app-default-button>
+      <div class="input-item link-btn-container">
+        <button class="link-button" (click)="goToAuth()">
+          {{ haveAcc | translate }}
+        </button>
+      </div>
+    </form>
+  </div>
+</app-modal-window>
+<app-profile-select-modal
+  #profileModal
+  [regModal]="this"
+  [login]="this.regForm.controls['email'].value"
+  [name]="this.regForm.controls['name'].value"
+  [password]="this.regForm.controls['password'].value"
+  [surname]="this.regForm.controls['surname'].value"
+></app-profile-select-modal>

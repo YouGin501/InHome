@@ -1,0 +1,121 @@
+<app-modal-window
+  [isOpened]="createPostModal"
+  bgColor="#00a3ff33"
+  class="modal-window"
+>
+  <div header class="custom-modal-header">
+    <button class="close-button" (click)="closePostModal()"></button>
+    <div class="header-text">{{ addNewsText | translate }}</div>
+  </div>
+  <div class="modal-content-container" body [formGroup]="postForm">
+    <div class="modal-content__top-wrapper">
+      <div class="post-card__create-btn">
+        <img src="assets/cross/add-icon.svg" (click)="photoInput.click()" />
+        <input
+          #photoInput
+          type="file"
+          (change)="onPhotoInput($event)"
+          style="display: none"
+          accept=".png,.jpg"
+        />
+      </div>
+      <div class="modal-content__address-wrapper" formGroupName="location">
+        <div class="modal-content__input_container input-with-validation">
+          <input
+            type="text"
+            class="modal-content__input"
+            placeholder="Country"
+            formControlName="country"
+            [ngClass]="postForm.controls['location'].controls['country'].errors?.['required'] && postForm.touched && postForm.invalid ? 'invalid-input' : 'valid-input'"
+          />
+          <div class="invalid-text-container">
+            <div
+              *ngIf="postForm.controls['location'].controls['country'].errors?.['required'] && postForm.touched && postForm.invalid"
+              class="invalid-text"
+            >
+              Country field is required
+            </div>
+          </div>
+        </div>
+        <div class="modal-content__input_container input-with-validation">
+          <input
+            type="text"
+            class="modal-content__input"
+            placeholder="City"
+            formControlName="city"
+            [ngClass]="postForm.controls['location'].controls['city'].errors?.['required'] && postForm.touched && postForm.invalid ? 'invalid-input' : 'valid-input'"
+          />
+          <div class="invalid-text-container">
+            <div
+              *ngIf="postForm.controls['location'].controls['city'].errors?.['required'] && postForm.touched && postForm.invalid"
+              class="invalid-text"
+            >
+              City field is required
+            </div>
+          </div>
+        </div>
+        <div class="modal-content__input_container input-with-validation">
+          <input
+            type="text"
+            class="modal-content__input"
+            placeholder="Address"
+            formControlName="address"
+            [ngClass]="postForm.controls['location'].controls['address'].errors?.['required'] && postForm.touched && postForm.invalid ? 'invalid-input' : 'valid-input'"
+          />
+          <div class="invalid-text-container">
+            <div
+              *ngIf="postForm.controls['location'].controls['address'].errors?.['required'] && postForm.touched && postForm.invalid"
+              class="invalid-text"
+            >
+              Address field is required
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-content__input_container input-with-validation">
+      <input
+        type="text"
+        class="modal-content__input"
+        placeholder="Title"
+        formControlName="title"
+        [ngClass]="postForm.controls['title'].errors?.['required'] && postForm.touched && postForm.invalid ? 'invalid-input' : 'valid-input'"
+      />
+      <div class="invalid-text-container">
+        <div
+          *ngIf="postForm.controls['title'].errors?.['required'] && postForm.touched && postForm.invalid"
+          class="invalid-text"
+        >
+          Title field is required
+        </div>
+      </div>
+    </div>
+    <div class="modal-content__input_container desc-input">
+      <textarea
+        class="modal-content__textarea"
+        placeholder="Description"
+        formControlName="description"
+      ></textarea>
+    </div>
+    <div class="modal-content__input_container input-without-validation">
+      <input
+        type="text"
+        class="modal-content__input"
+        placeholder="hashtags"
+        formControlName="hashtags"
+      />
+    </div>
+    <div class="add-post-buttons">
+      <button type="button" class="close-modal-window-button" (click)="closePostModal()">
+        {{ closeText | translate }}
+      </button>
+      <button
+        type="submit"
+        class="submit-modal-window-button"
+        (click)="createPost()"
+      >
+        {{ publishText | translate }}
+      </button>
+    </div>
+  </div>
+</app-modal-window>

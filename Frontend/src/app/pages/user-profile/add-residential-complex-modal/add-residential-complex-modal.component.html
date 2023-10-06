@@ -1,0 +1,205 @@
+<app-modal-window
+  [isOpened]="isModalOpened"
+  bgColor="#00a3ff33"
+  class="modal-window"
+  #resComplexModal
+>
+  <div header class="custom-modal-header">
+    <button class="close-button" (click)="closeModal()"></button>
+    <div class="header-text">
+      {{ addComplexText | translate }}
+    </div>
+  </div>
+  <div class="modal-content-container" body>
+    <div class="modal-content__top-wrapper">
+      <div class="img-block">
+        <div class="side-images-container">
+          <div class="side-img"></div>
+          <div class="side-img"></div>
+          <div class="side-img"></div>
+          <div class="side-img"></div>
+        </div>
+        <div class="main-img-area">
+          <img
+            src="assets/cross/add-icon.svg"
+            (click)="photoInput.click()"
+            class="img-button-icon"
+          />
+          <input
+            #photoInput
+            type="file"
+            (change)="onPhotoInput($event)"
+            style="display: none"
+            multiple
+            accept=".png,.jpg"
+          />
+          <div class="img-counter">
+            <span>+</span>
+            <span>{{ photoToUpload.length }}</span>
+          </div>
+          <div class="down-img-buttons">
+            <div class="img-button"></div>
+            <div class="img-button"></div>
+            <div class="img-button"></div>
+            <div class="img-button"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-content__middle-wrapper" [formGroup]="postForm">
+      <div class="pattern-container">
+        <img
+          src="../../../../assets/img/account-icon-dark.svg"
+          class="account-icon"
+        />
+        <div class="dev-page-label">{{ developerPageText | translate }}</div>
+        <div class="dev-name-label">{{ developerNameText | translate }}</div>
+      </div>
+      <div class="location-row">
+        <div class="location-label">{{ locationText | translate }}:</div>
+        <div formGroupName="location" class="location-form">
+          <div class="location-part-container">
+            <div class="modal-content__input_container input-with-validation">
+              <input
+                type="text"
+                [placeholder]="'COUNTRY' | translate"
+                class="modal-content__input half-input"
+                formControlName="country"
+                [ngClass]="postForm.controls['location'].controls['country'].errors?.['required'] && postForm.touched && postForm.invalid ? 'invalid-input' : 'valid-input'"
+              />
+              <div class="invalid-text-container">
+                <div
+                  *ngIf="postForm.controls['location'].controls['country'].errors?.['required'] && postForm.touched && postForm.invalid"
+                  class="invalid-text"
+                >
+                  Country field is required
+                </div>
+              </div>
+            </div>
+            <div class="modal-content__input_container input-with-validation">
+              <input
+                type="text"
+                [placeholder]="'CITY' | translate"
+                class="modal-content__input half-input"
+                formControlName="city"
+                [ngClass]="postForm.controls['location'].controls['city'].errors?.['required'] && postForm.touched && postForm.invalid ? 'invalid-input' : 'valid-input'"
+              />
+              <div class="invalid-text-container">
+                <div
+                  *ngIf="postForm.controls['location'].controls['city'].errors?.['required'] && postForm.touched && postForm.invalid"
+                  class="invalid-text"
+                >
+                  City field is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-content__input_container input-with-validation">
+            <input
+              type="text"
+              [placeholder]="'ADDRESS' | translate"
+              class="modal-content__input"
+              formControlName="address"
+              [ngClass]="postForm.controls['location'].controls['address'].errors?.['required'] && postForm.touched && postForm.invalid ? 'invalid-input' : 'valid-input'"
+            />
+            <div class="invalid-text-container">
+              <div
+                *ngIf="postForm.controls['location'].controls['address'].errors?.['required'] && postForm.touched && postForm.invalid"
+                class="invalid-text"
+              >
+                Address field is required
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="template-buttons-row">
+        <div class="website-label">{{ websiteText | translate }}</div>
+        <div class="department-label">{{ saleDepText | translate }}</div>
+        <div class="attendance-label">
+          <span>{{ attendanceText | translate }}</span>
+          <div class="calendar-icon"></div>
+        </div>
+        <div class="chat-label">
+          <span>{{ chatText | translate }}</span>
+          <div class="chat-icon"></div>
+        </div>
+      </div>
+      <div>
+        <div class="modal-content__input_container input-with-validation">
+          <input
+            type="text"
+            [placeholder]="'NAME' | translate"
+            class="modal-content__input half-input"
+            formControlName="name"
+            [ngClass]="postForm.controls['name'].errors?.['required'] && postForm.touched && postForm.invalid ? 'invalid-input' : 'valid-input'"
+          />
+          <div class="invalid-text-container">
+            <div
+              *ngIf="postForm.controls['name'].errors?.['required'] && postForm.touched && postForm.invalid"
+              class="invalid-text"
+            >
+              Name field is required
+            </div>
+          </div>
+        </div>
+        <div class="modal-content__input_container input-with-validation">
+          <input
+            type="text"
+            [placeholder]="'HASHTAGS' | translate"
+            class="modal-content__input half-input"
+            formControlName="hashtags"
+          />
+        </div>
+      </div>
+      <div class="modal-content__input_container desc-input">
+        <textarea
+          class="modal-content__textarea"
+          placeholder="Description"
+          formControlName="description"
+        ></textarea>
+      </div>
+      <div class="modal-content__input_container input-with-validation">
+        <input
+          type="text"
+          [placeholder]="'ADVERTIZING_LABEL' | translate"
+          class="modal-content__input"
+          formControlName="advertisingLabel"
+        />
+      </div>
+    </div>
+    <div class="add-appartment-type-block">
+      <input
+        type="text"
+        name="newAppartType"
+        [(ngModel)]="newAppartType"
+        [placeholder]="'APPARTMENT_TYPE' | translate"
+        class="appart-type-input"
+      />
+      <button class="appartment-type" (click)="addAppartType()">
+        {{ appartmentTypeText | translate }}
+      </button>
+    </div>
+    <div class="appartments-block">
+      <app-expand-component *ngFor="let type of appartmentTypes" [appartType]="type" [appartments]="appartments"></app-expand-component>
+    </div>
+    <div class="add-post-buttons">
+      <button
+        type="button"
+        class="close-modal-window-button"
+        (click)="closeModal()"
+      >
+        {{ closeText | translate }}
+      </button>
+      <button
+        type="submit"
+        class="submit-modal-window-button"
+        (click)="createPost()"
+        form="postForm"
+      >
+        {{ publishText | translate }}
+      </button>
+    </div>
+  </div>
+</app-modal-window>
+<app-add-apartment></app-add-apartment>

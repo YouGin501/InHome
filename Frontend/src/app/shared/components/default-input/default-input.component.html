@@ -1,0 +1,15 @@
+<div class="input-container">
+  <label [for]="componentId">{{ labelText | translate }}</label>
+  <input
+    [id]="componentId"
+    [type]="inputType"
+    [disabled]="disabled"
+    required
+    [ngModel]="value"
+    (ngModelChange)="setValue($event)"
+    [ngClass]="errors != null && (dirty || touched || submitAttempt) ? 'invalid-input' : 'valid-input'"
+  />
+  <div class="invalid-text-container">
+    <div *ngIf="errors != null && (dirty || touched || submitAttempt)" class="invalid-text">{{ errorMessage | translate }}</div>
+  </div>
+</div>

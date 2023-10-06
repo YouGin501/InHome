@@ -1,0 +1,51 @@
+@import '../../../../styles.scss';
+
+.dropdown-container {
+    position: relative;
+
+    .selected-container {
+        display: flex;
+        padding: 12.5px 25.5px;
+        border-radius: 5px;
+        background-color: $base-blue-color;
+        justify-content: space-between;
+        font-weight: 300;
+
+        .dropdown-open-btn {
+            background-image: url(../../../../assets/img/arrow-down.svg);
+            background-size: cover;
+            width: 30px;
+            height: 30px;
+            border: none;
+            background-color: transparent;
+        }
+    }
+
+    .dropdown-list-hidden {
+        display: none;
+    }
+
+    .dropdown-list {
+        background-color: $gray-color-1;
+        position: absolute;
+        width: 100%;
+        padding-bottom: 40px;
+        text-align: center;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        margin: 0px;
+
+        .dropdown-item {
+            list-style: none;
+            color: $base-black-color;
+            font-weight: 300;
+            margin-bottom: 20px;
+            padding: 0px;
+            pointer-events: none;
+        }
+
+        .last-dropdown-item {
+            margin: 0px;
+        }
+    }
+}

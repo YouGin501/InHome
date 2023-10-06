@@ -1,0 +1,127 @@
+<div class="page-container">
+  <div class="user-info-holder">
+    <div class="logo-img" [style.backgroundImage]="userLogo"></div>
+    <div class="center-info-container">
+      <div class="info-header">
+        <div class="user-name">{{ currentUser?.name }}</div>
+        <div class="web-site-info">
+          <button
+            *ngIf="currentUser?.id === appUser?.id"
+            class="bell-button"
+          ></button>
+          <button
+            *ngIf="currentUser?.id === appUser?.id"
+            class="likes-button"
+          ></button>
+          <a
+            [routerLink]="['/profile-settings']"
+            [queryParams]="{ backLink: pageRef }"
+            *ngIf="currentUser?.id === appUser?.id"
+            class="settings-button"
+          ></a>
+        </div>
+      </div>
+      <div class="info-container">
+        <div class="info-box">
+          <div class="info-text">{{ readersText | translate }}:</div>
+          <div>{{ currentUser?.subscriberSubscriptions?.length ?? 0 }}</div>
+        </div>
+        <div class="info-box">
+          <div class="info-text">{{ followText | translate }}:</div>
+          <div>{{ currentUser?.receiverSubscriptions?.length ?? 0 }}</div>
+        </div>
+      </div>
+      <button
+        class="action-button company-button"
+        (click)="showCompanyInfo()"
+        [ngClass]="{ 'company-button-clicked': isCompanyInfoShown }"
+      >
+        {{ companyInfoText | translate }}
+      </button>
+      <div class="user-info-text">
+        <div *ngIf="isCompanyInfoShown">{{ currentUser?.information }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="profile-buttons">
+    <div class="feedback-actions">
+      <button class="action-button" (click)="feedbacksListModal.openModal()">
+        {{ feedbacksText | translate }}
+      </button>
+      <button class="action-button" (click)="feedbackModal.openModal()">
+        {{ addFeedbackText | translate }}
+      </button>
+    </div>
+    <div class="action-buttons">
+      <button class="action-button" (click)="documentsModal.openModal()">
+        {{ documents | translate }}
+      </button>
+      <button class="action-button">
+        {{ projectsOnMapText | translate }}
+      </button>
+    </div>
+  </div>
+  <app-tab-holder
+    [tabs]="tabsInfo"
+    (OnTabSelected)="tabSelectionChanged($event)"
+  >
+    <app-tab
+      *ngFor="let tab of tabsInfo"
+      [tabTitle]="tab.title"
+      [active]="tab.active"
+    >
+      <div class="post-card__wrapper">
+        <div
+          class="post-card__create-btn"
+          *ngIf="currentUser?.id === appUser?.id"
+        >
+          <img
+            src="assets/cross/add-icon.svg"
+            (click)="addNewsModal.openPostModal()"
+            *ngIf="tab.title === 'NEWS'"
+          />
+          <img
+            src="assets/cross/add-icon.svg"
+            (click)="addSellRentModal.openModal('sell')"
+            *ngIf="tab.title === 'SELLING'"
+          />
+          <img
+            src="assets/cross/add-icon.svg"
+            (click)="addSellRentModal.openModal('rent')"
+            *ngIf="tab.title === 'RENT'"
+          />
+          <img
+            src="assets/cross/add-icon.svg"
+            (click)="addResidentialComplexModal.openModal()"
+            *ngIf="tab.title === 'PROJECTS'"
+          />
+        </div>
+        <div *ngFor="let item of cardItems" class="post-card__item">
+          <app-tile
+            [imgUrl]="item?.photos?.[0]?.url || null"
+            [name]="item?.title || null"
+            (click)="viewSellRentModal.openModal(item, tab.title || '')"
+          ></app-tile>
+        </div>
+      </div>
+    </app-tab>
+  </app-tab-holder>
+</div>
+
+<app-documents-modal
+  [documents]="currentUser?.documents"
+  #documentsModal
+></app-documents-modal>
+<app-add-feedback #feedbackModal></app-add-feedback>
+<app-feedback-list #feedbacksListModal></app-feedback-list>
+<app-add-news-modal #addNewsModal></app-add-news-modal>
+<app-add-sell-rent-modal
+  #addSellRentModal
+  (OnRentAdded)="reloadRents()"
+  (OnSellingAdded)="reloadRealEstates()"
+></app-add-sell-rent-modal>
+<app-add-residential-complex-modal
+  (OnComplexAdded)="reloadResedentialComplexes()"
+  #addResidentialComplexModal
+></app-add-residential-complex-modal>
+<app-view-sell-rent-modal #viewSellRentModal></app-view-sell-rent-modal>

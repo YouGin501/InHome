@@ -1,0 +1,367 @@
+@import "../../../../styles.scss";
+
+$grid-columns: 10 !default;
+
+.carousel-container {
+    margin: 0px;
+    padding: 0px;
+
+    .most-favorite-label {
+        margin-top: 15px;
+        font-size: 17px;
+        color: $base-white-color;
+        width: 100%;
+        background-color: $base-blue-color;
+        padding: 18px 30px 18px 30px;
+        text-align: center;
+    }
+
+    .row-first {
+        margin-top: 18px;
+        margin-bottom: 31px;
+    }
+
+    .control-bottom-container {
+        display: flex;
+        margin-top: 20px;
+
+        .down-arrow {
+            display: flex;
+            align-items: center;
+            color: $base-white-color;
+            background: none;
+            border: none;
+            width: 30%;
+        }
+
+        .right-arrow {
+            justify-content: end;
+        }
+
+        .round-buttons-container {
+            width: 40%;
+            justify-content: center;
+            display: flex;
+        }
+
+        .round-button {
+            background-color: #F5F1F1;
+            border: none;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+        }
+
+        .page-button {
+            margin-left: 52px;
+        }
+        
+    }
+
+    .control-bottom-container-sm {
+        display: none;
+    }
+
+    .bottom-registration {
+        padding-top: 80px;
+        padding-bottom: 80px;
+        display: flex;
+        justify-content: center;
+    
+        .registration-label {
+            font-size: 40px;
+            color: $base-white-color;
+            text-decoration: underline;
+            margin-right: 52px;
+        }
+
+        .registarte-button {
+            padding: 15px 85px;
+            background-color: $base-blue-color;
+            color: $base-white-color;
+            border: none;
+            font-size: 20px;
+        }
+    }
+    .row-container {
+        height: 266px;
+        display: flex;
+
+        .big-card-container {
+            width: 40%;
+        }
+
+        .small-card-container {
+            width: 20%;
+        }
+
+        .container-with-gaps {
+            padding: 0px 15px;
+        }
+
+        .first-container-in-row {
+            padding-right: 15px;
+        }
+
+        .last-container-in-row {
+            padding-left: 15px;
+        }
+
+        .card-container {
+            position: relative;
+            height: 100%;
+            border-radius: 5px;
+
+            .img-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                height: 266px;
+                border-radius: 5px;
+
+                .project-img {
+                    flex-shrink: 0;
+                    min-width: 100%;
+                    min-height: 100%;
+                    height: 100%;
+                }
+            }
+
+            .card-info-wrapper-with-gaps {
+                width: calc(100% - 30px);
+            }
+
+            .card-info-wrapper-first-in-row {
+                width: calc(100% - 15px);
+            }
+
+            .card-info-wrapper {
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 266px;
+                padding: 20px;
+                background: linear-gradient(180deg, rgba(167, 167, 167, 0.2) 2.69%, #000000 87.33%);
+
+                .top-label {
+                    padding: 4px 10px 4px 10px;
+                    background-color: $base-pink-color;
+                    color: $base-black-color;
+                    width: fit-content;
+                    border-radius: 5px;
+                    margin-top: 10px;
+                    font-size: 14px;
+                }
+
+                .card-info-header {
+
+                    display: flex;
+
+                    .like-button {
+                        background-image: url(../../../../assets/img/like-icon.svg);
+                        background-size:     cover;
+                        width: 20px;
+                        height: 18px;
+                        background-color: transparent;
+                        border: none;
+                        margin-left: auto;
+                    }
+
+                    .card-advertizement {
+                        color: $base-white-color;
+                        font-size: 14px;
+                        padding: 5px 15px;
+                        background-color: $base-blue-color;
+                        border-radius: 5px;
+                        max-width: 175px;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                    }
+                }
+
+                .card-bottom-info {
+                    margin-top: auto;
+                    color: $base-white-color;
+
+                    .card-info-title {
+                        font-size: 20px;
+                        font-weight: 400px;
+                    }
+
+                    .card-company-name {
+                        font-size: 14px;
+                        font-weight: 300;
+                    }
+
+                    .price-info {
+                        font-size: 14px;
+                        font-weight: 400px;
+                    }
+                }
+            }
+        }
+    }
+
+    .small-row-container {
+        display: none;
+        flex-wrap: wrap;
+
+        .first-container-in-row {
+            padding-right: 5px;
+            margin-bottom: 10px;
+        }
+
+        .last-container-in-row {
+            padding-left: 5px;
+            margin-bottom: 10px;
+        }
+
+        .card-container {
+            width: 50%;
+            height: 163px;
+
+            .img-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                height: 163px;
+                border-radius: 5px;
+
+                .project-img {
+                    flex-shrink: 0;
+                    min-width: 100%;
+                    min-height: 100%;
+                    height: 100%;
+                }
+            }
+
+            .card-info-wrapper-first-in-row {
+                width: calc(50% - 20px);
+            }
+
+            .card-info-wrapper {
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 163px;
+                padding: 11px;
+                background: linear-gradient(180deg, rgba(167, 167, 167, 0.2) 2.69%, #000000 87.33%);
+
+                .top-label {
+                    padding: 4px 10px 4px 10px;
+                    background-color: $base-pink-color;
+                    color: $base-black-color;
+                    width: fit-content;
+                    border-radius: 5px;
+                    margin-top: 10px;
+                    font-size: 14px;
+                }
+
+                .card-info-header {
+
+                    display: flex;
+
+                    .like-button {
+                        background-image: url(../../../../assets/img/like-icon.svg);
+                        background-size:     cover;
+                        width: 20px;
+                        height: 18px;
+                        background-color: transparent;
+                        border: none;
+                        margin-left: auto;
+                    }
+
+                    .card-advertizement {
+                        color: $base-white-color;
+                        font-size: 14px;
+                        padding: 3px 6px;
+                        background-color: $base-blue-color;
+                        border-radius: 5px;
+                        max-width: 175px;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                    }
+                }
+
+                .card-bottom-info {
+                    margin-top: auto;
+                    color: $base-white-color;
+
+                    .card-info-title {
+                        font-size: 20px;
+                        font-weight: 400px;
+                    }
+
+                    .card-company-name {
+                        font-size: 14px;
+                        font-weight: 300;
+                    }
+
+                    .price-info {
+                        font-size: 14px;
+                        font-weight: 400px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+@media screen and (max-width: 1200px) {
+    .carousel-container {
+
+        .most-favorite-label {
+            margin-bottom: 10px;
+        }
+
+        .row-container {
+            display: none;
+        }
+
+        .small-row-container {
+            display: flex;
+        }
+
+        .control-bottom-container-sm {
+            display: initial;
+            margin-bottom: 18px;
+        }
+
+        .control-bottom-container {
+            display: flex;
+            justify-content: space-between;
+
+            .round-buttons-container {
+                display: none;
+            }
+        }
+
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .carousel-container {
+        .small-row-container {
+            .card-container {
+                .card-info-wrapper {
+                    .card-info-header {
+                        .card-advertizement {
+                            max-width: 70px;
+                            width: 70px;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+}

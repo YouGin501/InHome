@@ -1,0 +1,205 @@
+@import "../../../../../styles.scss";
+
+.post-card__create-btn {
+  min-width: 256px;
+  min-height: 256px;
+  width: 256px;
+  height: 256px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(217, 217, 217);
+  margin-right: 30px;
+}
+
+.upper-container {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.upper-inputs {
+    width: 100%;
+}
+
+.double-inputs-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.half-input {
+    width: 45%;
+}
+
+.price-container {
+    display: flex;
+    justify-content: end;
+}
+
+.price-input {
+    width: 45%;
+}
+
+.modal-window {
+  .modal-content-container {
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 140px 60px;
+    overflow: hidden;
+    overflow-y: auto;
+
+    .modal-content__middle-wrapper {
+      padding: 8px 24px;
+      background-color: $gray-color-1;
+      border-radius: 5px;
+      margin-bottom: 30px;
+
+      .bottom-input-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+
+        .modal-content__input_container {
+          width: 45%;
+        }
+      }
+
+      .under-location-container {
+        display: flex;
+        justify-content: space-between;
+
+        .modal-content__input_container {
+          width: 45%;
+        }
+      }
+
+      .characteristics-label {
+        margin-bottom: 15px;
+      }
+
+      .charecterisitics-head {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+      }
+    }
+
+    .input-without-validation {
+      padding: 15px 0;
+    }
+
+    .input-with-validation {
+      padding: 0px;
+    }
+
+    .desc-input {
+      padding-top: 0px;
+      padding-bottom: 30px;
+      height: 165px;
+    }
+
+    .input-with-upper-space {
+      margin-top: 15px;
+    }
+
+    .modal-content__input_container {
+      .modal-content__input {
+        width: 100%;
+        height: 40px;
+        border: none;
+        font-size: 20px;
+        padding: 30px;
+        border-radius: 5px;
+      }
+
+      .invalid-input {
+        border: 2px solid rgba(167, 31, 13, 1);
+      }
+
+      .valid-input {
+        border: none;
+      }
+
+      .modal-content__textarea {
+        width: 100%;
+        height: 165px;
+        border: none;
+        font-size: 20px;
+        padding-top: 30px;
+        padding-left: 30px;
+        border-radius: 5px;
+        resize: none;
+      }
+    }
+
+    .add-post-buttons {
+      display: flex;
+      justify-content: space-between;
+
+      .close-modal-window-button {
+        border: 1px solid $base-white-color;
+        color: white;
+        background: transparent;
+        height: 60px;
+        width: 255px;
+        border-radius: 5px;
+      }
+
+      .submit-modal-window-button {
+        border: none;
+        background-color: $gray-color-1;
+        color: $base-black-color;
+        height: 60px;
+        width: 255px;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  .post-card__create-btn {
+    width: 256px;
+    height: 256px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(217, 217, 217);
+  }
+
+  .custom-modal-header {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    font-size: 24px;
+    font-weight: 400;
+    padding: 29px 20px 0px 20px;
+
+    .header-text {
+      width: calc(100% - 30px);
+      color: $base-white-color;
+      text-align: center;
+      align-self: center;
+      padding-bottom: 20px;
+      font-size: 40px;
+    }
+  }
+
+  .close-button {
+    background-image: url(../../../../../assets/img/close-white.svg);
+    background-size: cover;
+    width: 40px;
+    height: 30px;
+    border: 0px;
+    background-color: transparent;
+    align-self: flex-end;
+  }
+
+  .invalid-text-container {
+    height: 30px;
+    width: 80%;
+
+    .invalid-text {
+      color: rgba(167, 31, 13, 1);
+      font-size: 12px;
+    }
+  }
+}

@@ -1,0 +1,74 @@
+@import "../../../../styles.scss";
+
+.close-button {
+  background-image: url(../../../../assets/img/close-white.svg);
+  background-size: cover;
+  width: 40px;
+  height: 30px;
+  border: 0px;
+  background-color: transparent;
+  align-self: flex-end;
+}
+
+.modal-window {
+  .modal-content-container {
+    width: 1000px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    overflow-y: auto;
+
+    .doc-box {
+      width: 90%;
+    }
+
+    .document-item {
+      margin-bottom: 46px;
+    }
+  }
+
+  .custom-modal-header {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    font-size: 24px;
+    font-weight: 400;
+    padding: 29px 20px 0px 20px;
+
+    .header-text {
+      width: calc(100% - 30px);
+      color: $base-white-color;
+      text-align: center;
+      align-self: center;
+      padding-bottom: 50px;
+      font-size: 40px;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .edit-btn {
+    margin-left: 20px;
+  }
+
+  .modal-window {
+    .modal-content-container {
+      width: 500px;
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .modal-window {
+    .modal-content-container {
+      width: 300px;
+    }
+
+    .custom-modal-header {
+      .header-text {
+        font-size: 20px;
+        padding-bottom: 20px;
+      }
+    }
+  }
+}
